@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RBNumerosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblChamado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DataAbertura" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DataFechamento" Type="DateTime" Precision="3" />
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="Carteira" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IdAbertoPor" Type="Int32" Nullable="false" />
+    <Property Name="TipoChamado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Assunto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Titulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblCliente" Relationship="Self.FK_tblChamado_tblCliente" FromRole="tblChamado" ToRole="tblCliente" />
+    <NavigationProperty Name="tblTecnico" Relationship="Self.FK_tblChamado_tblTecnico" FromRole="tblChamado" ToRole="tblTecnico" />
+  </EntityType>
+  <EntityType Name="tblCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="Prioridade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Carteira" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="tblChamado" Relationship="Self.FK_tblChamado_tblCliente" FromRole="tblCliente" ToRole="tblChamado" />
+  </EntityType>
+  <EntityType Name="tblTecnico">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Carteira" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CarteiraSN" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblChamado" Relationship="Self.FK_tblChamado_tblTecnico" FromRole="tblTecnico" ToRole="tblChamado" />
+  </EntityType>
+  <Association Name="FK_tblChamado_tblCliente">
+    <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="1" />
+    <End Role="tblChamado" Type="Self.tblChamado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblChamado">
+        <PropertyRef Name="IdAbertoPor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblChamado_tblTecnico">
+    <End Role="tblTecnico" Type="Self.tblTecnico" Multiplicity="1" />
+    <End Role="tblChamado" Type="Self.tblChamado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTecnico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblChamado">
+        <PropertyRef Name="IdAbertoPor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RBNumerosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblChamado" EntityType="Self.tblChamado" />
+    <EntitySet Name="tblCliente" EntityType="Self.tblCliente" />
+    <EntitySet Name="tblTecnico" EntityType="Self.tblTecnico" />
+    <AssociationSet Name="FK_tblChamado_tblCliente" Association="Self.FK_tblChamado_tblCliente">
+      <End Role="tblCliente" EntitySet="tblCliente" />
+      <End Role="tblChamado" EntitySet="tblChamado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblChamado_tblTecnico" Association="Self.FK_tblChamado_tblTecnico">
+      <End Role="tblTecnico" EntitySet="tblTecnico" />
+      <End Role="tblChamado" EntitySet="tblChamado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

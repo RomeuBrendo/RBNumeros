@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RBNumerosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblChamado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DataAbertura" Type="datetime" Nullable="false" />
+          <Property Name="DataFechamento" Type="datetime" />
+          <Property Name="IdCliente" Type="int" Nullable="false" />
+          <Property Name="Carteira" Type="nchar" MaxLength="10" />
+          <Property Name="IdAbertoPor" Type="int" Nullable="false" />
+          <Property Name="TipoChamado" Type="varchar" MaxLength="50" />
+          <Property Name="Modulo" Type="varchar" MaxLength="150" />
+          <Property Name="Assunto" Type="varchar" MaxLength="150" />
+          <Property Name="Titulo" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tblCliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="800" />
+          <Property Name="Prioridade" Type="varchar" MaxLength="50" />
+          <Property Name="Carteira" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblTecnico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" />
+          <Property Name="Carteira" Type="nchar" MaxLength="10" />
+          <Property Name="CarteiraSN" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblChamado_tblCliente">
+          <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="1" />
+          <End Role="tblChamado" Type="Self.tblChamado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblChamado">
+              <PropertyRef Name="IdAbertoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblChamado_tblTecnico">
+          <End Role="tblTecnico" Type="Self.tblTecnico" Multiplicity="1" />
+          <End Role="tblChamado" Type="Self.tblChamado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTecnico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblChamado">
+              <PropertyRef Name="IdAbertoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RBNumerosModelStoreContainer">
+          <EntitySet Name="tblChamado" EntityType="Self.tblChamado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCliente" EntityType="Self.tblCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTecnico" EntityType="Self.tblTecnico" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblChamado_tblCliente" Association="Self.FK_tblChamado_tblCliente">
+            <End Role="tblCliente" EntitySet="tblCliente" />
+            <End Role="tblChamado" EntitySet="tblChamado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblChamado_tblTecnico" Association="Self.FK_tblChamado_tblTecnico">
+            <End Role="tblTecnico" EntitySet="tblTecnico" />
+            <End Role="tblChamado" EntitySet="tblChamado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RBNumerosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblChamado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DataAbertura" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataFechamento" Type="DateTime" Precision="3" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <Property Name="Carteira" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="IdAbertoPor" Type="Int32" Nullable="false" />
+          <Property Name="TipoChamado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Modulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Assunto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Titulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblCliente" Relationship="Self.FK_tblChamado_tblCliente" FromRole="tblChamado" ToRole="tblCliente" />
+          <NavigationProperty Name="tblTecnico" Relationship="Self.FK_tblChamado_tblTecnico" FromRole="tblChamado" ToRole="tblTecnico" />
+        </EntityType>
+        <EntityType Name="tblCliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="Prioridade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Carteira" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tblChamado" Relationship="Self.FK_tblChamado_tblCliente" FromRole="tblCliente" ToRole="tblChamado" />
+        </EntityType>
+        <EntityType Name="tblTecnico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Carteira" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CarteiraSN" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tblChamado" Relationship="Self.FK_tblChamado_tblTecnico" FromRole="tblTecnico" ToRole="tblChamado" />
+        </EntityType>
+        <Association Name="FK_tblChamado_tblCliente">
+          <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="1" />
+          <End Role="tblChamado" Type="Self.tblChamado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblChamado">
+              <PropertyRef Name="IdAbertoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblChamado_tblTecnico">
+          <End Role="tblTecnico" Type="Self.tblTecnico" Multiplicity="1" />
+          <End Role="tblChamado" Type="Self.tblChamado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTecnico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblChamado">
+              <PropertyRef Name="IdAbertoPor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RBNumerosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblChamado" EntityType="Self.tblChamado" />
+          <EntitySet Name="tblCliente" EntityType="Self.tblCliente" />
+          <EntitySet Name="tblTecnico" EntityType="Self.tblTecnico" />
+          <AssociationSet Name="FK_tblChamado_tblCliente" Association="Self.FK_tblChamado_tblCliente">
+            <End Role="tblCliente" EntitySet="tblCliente" />
+            <End Role="tblChamado" EntitySet="tblChamado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblChamado_tblTecnico" Association="Self.FK_tblChamado_tblTecnico">
+            <End Role="tblTecnico" EntitySet="tblTecnico" />
+            <End Role="tblChamado" EntitySet="tblChamado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RBNumerosModelStoreContainer" CdmEntityContainer="RBNumerosEntities">
+          <EntitySetMapping Name="tblChamado">
+            <EntityTypeMapping TypeName="RBNumerosModel.tblChamado">
+              <MappingFragment StoreEntitySet="tblChamado">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DataAbertura" ColumnName="DataAbertura" />
+                <ScalarProperty Name="DataFechamento" ColumnName="DataFechamento" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Carteira" ColumnName="Carteira" />
+                <ScalarProperty Name="IdAbertoPor" ColumnName="IdAbertoPor" />
+                <ScalarProperty Name="TipoChamado" ColumnName="TipoChamado" />
+                <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+                <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCliente">
+            <EntityTypeMapping TypeName="RBNumerosModel.tblCliente">
+              <MappingFragment StoreEntitySet="tblCliente">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Prioridade" ColumnName="Prioridade" />
+                <ScalarProperty Name="Carteira" ColumnName="Carteira" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTecnico">
+            <EntityTypeMapping TypeName="RBNumerosModel.tblTecnico">
+              <MappingFragment StoreEntitySet="tblTecnico">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Carteira" ColumnName="Carteira" />
+                <ScalarProperty Name="CarteiraSN" ColumnName="CarteiraSN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RBNumerosModelStoreContainer" CdmEntityContainer="RBNumerosEntities">
+    <EntitySetMapping Name="tblChamado">
+      <EntityTypeMapping TypeName="RBNumerosModel.tblChamado">
+        <MappingFragment StoreEntitySet="tblChamado">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataAbertura" ColumnName="DataAbertura" />
+          <ScalarProperty Name="DataFechamento" ColumnName="DataFechamento" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Carteira" ColumnName="Carteira" />
+          <ScalarProperty Name="IdAbertoPor" ColumnName="IdAbertoPor" />
+          <ScalarProperty Name="TipoChamado" ColumnName="TipoChamado" />
+          <ScalarProperty Name="Modulo" ColumnName="Modulo" />
+          <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCliente">
+      <EntityTypeMapping TypeName="RBNumerosModel.tblCliente">
+        <MappingFragment StoreEntitySet="tblCliente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Prioridade" ColumnName="Prioridade" />
+          <ScalarProperty Name="Carteira" ColumnName="Carteira" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTecnico">
+      <EntityTypeMapping TypeName="RBNumerosModel.tblTecnico">
+        <MappingFragment StoreEntitySet="tblTecnico">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Carteira" ColumnName="Carteira" />
+          <ScalarProperty Name="CarteiraSN" ColumnName="CarteiraSN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
