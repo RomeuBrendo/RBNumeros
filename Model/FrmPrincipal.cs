@@ -12,6 +12,8 @@ namespace Model
             FrmLogin frmLogin = new FrmLogin();
         
             _carteira = carteira;
+
+           this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
 

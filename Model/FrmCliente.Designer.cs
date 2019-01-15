@@ -31,15 +31,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.dataGridCliente = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Carteira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Carteira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +48,6 @@
             this.dataGridCliente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
             this.Nome,
             this.Carteira});
             this.dataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -62,37 +59,6 @@
             this.dataGridCliente.Size = new System.Drawing.Size(817, 453);
             this.dataGridCliente.TabIndex = 0;
             this.dataGridCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridCliente_KeyDown);
-            // 
-            // Codigo
-            // 
-            this.Codigo.DataPropertyName = "Id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.Codigo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 90;
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.Nome.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 550;
-            // 
-            // Carteira
-            // 
-            this.Carteira.DataPropertyName = "Prioridade";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.Carteira.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Carteira.HeaderText = "Prioridade";
-            this.Carteira.Name = "Carteira";
-            this.Carteira.ReadOnly = true;
-            this.Carteira.Width = 133;
             // 
             // statusStrip1
             // 
@@ -116,6 +82,26 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(376, 17);
             this.toolStripStatusLabel2.Text = "Selecione o cliente e defina sua prioridade - B: Baixa, M: Média, A: Alta";
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.Nome.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 595;
+            // 
+            // Carteira
+            // 
+            this.Carteira.DataPropertyName = "Prioridade";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Carteira.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Carteira.HeaderText = "Prioridade";
+            this.Carteira.Name = "Carteira";
+            this.Carteira.ReadOnly = true;
+            this.Carteira.Width = 180;
             // 
             // FrmCliente
             // 
@@ -141,11 +127,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carteira;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carteira;
     }
 }

@@ -82,6 +82,7 @@ namespace Model
                 ClienteNR clienteSelecionado = dataGridNR.SelectedRows[0].DataBoundItem as ClienteNR;
 
                 CarregarNrDetalhado(clienteSelecionado.IdCliente);
+                e.SuppressKeyPress = true;
 
                 panelNRDetalhado.Visible = true;
 
@@ -111,5 +112,17 @@ namespace Model
             }
         }
 
+        private void FrmNR_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+
+            else if (e.KeyCode == Keys.F4)
+            {
+                CarregarDados();
+            }
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.statusStripPrincipal = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,19 +48,12 @@
             // 
             this.statusStripPrincipal.BackColor = System.Drawing.Color.White;
             this.statusStripPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
             this.statusStripPrincipal.Location = new System.Drawing.Point(0, 449);
             this.statusStripPrincipal.Name = "statusStripPrincipal";
             this.statusStripPrincipal.Size = new System.Drawing.Size(1004, 22);
             this.statusStripPrincipal.TabIndex = 3;
             this.statusStripPrincipal.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(195, 17);
-            this.toolStripStatusLabel1.Text = "Desenvolvido por Romeu Brendo   /";
             // 
             // toolStripStatusLabel2
             // 
@@ -140,14 +132,14 @@
             // chamadosAbertosToolStripMenuItem
             // 
             this.chamadosAbertosToolStripMenuItem.Name = "chamadosAbertosToolStripMenuItem";
-            this.chamadosAbertosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chamadosAbertosToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.chamadosAbertosToolStripMenuItem.Text = "Chamados";
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1004, 471);
             this.Controls.Add(this.statusStripPrincipal);
@@ -170,7 +162,6 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStripPrincipal;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;

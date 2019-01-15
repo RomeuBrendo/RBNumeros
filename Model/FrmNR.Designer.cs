@@ -37,10 +37,8 @@
             this.dataGridNR = new System.Windows.Forms.DataGridView();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Chamados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeInicial = new System.Windows.Forms.DateTimePicker();
             this.lblDataInicial = new System.Windows.Forms.Label();
             this.lblFinal = new System.Windows.Forms.Label();
-            this.dateTimeFinal = new System.Windows.Forms.DateTimePicker();
             this.checkBoxRecorrente = new System.Windows.Forms.CheckBox();
             this.btnCarregar = new System.Windows.Forms.Button();
             this.checkBoxPerdido = new System.Windows.Forms.CheckBox();
@@ -57,6 +55,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dateTimeInicial = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeFinal = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNR)).BeginInit();
             this.panelNRDetalhado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNRDetalhado)).BeginInit();
@@ -98,15 +98,6 @@
             this.Chamados.HeaderText = "Chamados";
             this.Chamados.Name = "Chamados";
             // 
-            // dateTimeInicial
-            // 
-            this.dateTimeInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeInicial.Location = new System.Drawing.Point(80, 23);
-            this.dateTimeInicial.Name = "dateTimeInicial";
-            this.dateTimeInicial.Size = new System.Drawing.Size(85, 20);
-            this.dateTimeInicial.TabIndex = 2;
-            this.dateTimeInicial.Value = new System.DateTime(2019, 1, 3, 0, 0, 0, 0);
-            // 
             // lblDataInicial
             // 
             this.lblDataInicial.AutoSize = true;
@@ -124,15 +115,6 @@
             this.lblFinal.Size = new System.Drawing.Size(55, 13);
             this.lblFinal.TabIndex = 5;
             this.lblFinal.Text = "Data final:";
-            // 
-            // dateTimeFinal
-            // 
-            this.dateTimeFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeFinal.Location = new System.Drawing.Point(245, 23);
-            this.dateTimeFinal.Name = "dateTimeFinal";
-            this.dateTimeFinal.Size = new System.Drawing.Size(85, 20);
-            this.dateTimeFinal.TabIndex = 4;
-            this.dateTimeFinal.Value = new System.DateTime(2019, 1, 3, 22, 29, 34, 0);
             // 
             // checkBoxRecorrente
             // 
@@ -283,13 +265,31 @@
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(243, 17);
-            this.toolStripStatusLabel2.Text = "Aperte ECS para sair da tela de detalhamento";
+            this.toolStripStatusLabel2.Text = "Aperte ESC para sair da tela de detalhamento";
+            // 
+            // dateTimeInicial
+            // 
+            this.dateTimeInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeInicial.Location = new System.Drawing.Point(80, 24);
+            this.dateTimeInicial.Name = "dateTimeInicial";
+            this.dateTimeInicial.Size = new System.Drawing.Size(90, 20);
+            this.dateTimeInicial.TabIndex = 13;
+            // 
+            // dateTimeFinal
+            // 
+            this.dateTimeFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeFinal.Location = new System.Drawing.Point(238, 25);
+            this.dateTimeFinal.Name = "dateTimeFinal";
+            this.dateTimeFinal.Size = new System.Drawing.Size(90, 20);
+            this.dateTimeFinal.TabIndex = 14;
             // 
             // FrmNR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 535);
+            this.Controls.Add(this.dateTimeFinal);
+            this.Controls.Add(this.dateTimeInicial);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panelNRDetalhado);
             this.Controls.Add(this.lblTotal);
@@ -298,9 +298,7 @@
             this.Controls.Add(this.btnCarregar);
             this.Controls.Add(this.checkBoxRecorrente);
             this.Controls.Add(this.lblFinal);
-            this.Controls.Add(this.dateTimeFinal);
             this.Controls.Add(this.lblDataInicial);
-            this.Controls.Add(this.dateTimeInicial);
             this.Controls.Add(this.dataGridNR);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -308,6 +306,7 @@
             this.Name = "FrmNR";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chamados não Resolvidos NR";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmNR_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNR)).EndInit();
             this.panelNRDetalhado.ResumeLayout(false);
             this.panelNRDetalhado.PerformLayout();
@@ -322,10 +321,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridNR;
-        private System.Windows.Forms.DateTimePicker dateTimeInicial;
         private System.Windows.Forms.Label lblDataInicial;
         private System.Windows.Forms.Label lblFinal;
-        private System.Windows.Forms.DateTimePicker dateTimeFinal;
         private System.Windows.Forms.CheckBox checkBoxRecorrente;
         private System.Windows.Forms.Button btnCarregar;
         private System.Windows.Forms.CheckBox checkBoxPerdido;
@@ -344,5 +341,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.DateTimePicker dateTimeInicial;
+        private System.Windows.Forms.DateTimePicker dateTimeFinal;
     }
 }

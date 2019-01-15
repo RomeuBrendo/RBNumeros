@@ -25,7 +25,7 @@ namespace Model
 
         public void ValidacaoUsuario()
         {
-            if (txtNome.Text == "ARTHUR" && txtSenha.Text == "123")
+            if (txtNome.Text == "ARTUR" && txtSenha.Text == "123")
             {
                 FrmPrincipal frmPrincipal = new FrmPrincipal("A");
 
@@ -38,9 +38,15 @@ namespace Model
 
                 frmPrincipal.Show();
             }
+            else if (txtNome.Text == "LAURA" && txtSenha.Text == "123")
+            {
+                FrmPrincipal frmPrincipal = new FrmPrincipal("C");
+
+                frmPrincipal.Show();
+            }
             else if(txtNome.Text == "ADM" && txtSenha.Text == "123")
             {
-                FrmPrincipal frmPrincipal = new FrmPrincipal("T");
+                FrmPrincipal frmPrincipal = new FrmPrincipal("%");
 
                 frmPrincipal.Show();
             }
@@ -52,9 +58,9 @@ namespace Model
             }
             else
             {
-                //Menssagem pronta do windows gutembergue
-                //  MessageBox.Show("Usuario ou senha errado. Consulte o adm.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                MessageBox.Show("Teste Gutembergue.", "TESTE CABEÇARIO", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+   
+                MessageBox.Show("Usuario ou senha errado. Consulte o adm.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            
             }
         }
 
