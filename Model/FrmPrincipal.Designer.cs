@@ -132,8 +132,9 @@
             // chamadosAbertosToolStripMenuItem
             // 
             this.chamadosAbertosToolStripMenuItem.Name = "chamadosAbertosToolStripMenuItem";
-            this.chamadosAbertosToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.chamadosAbertosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.chamadosAbertosToolStripMenuItem.Text = "Chamados";
+            this.chamadosAbertosToolStripMenuItem.Click += new System.EventHandler(this.chamadosAbertosToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 

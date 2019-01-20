@@ -28,7 +28,7 @@ namespace Servicos
                 tecnicoChamado.Nome = tecnico.Nome;
 
                 tecnicoChamado.Quantidade = chamados.Count(a => a.IdAbertoPor == tecnico.Id);
-                tecnicoChamado.QuantidadeRecorrente = chamados.Count(a => a.IdAbertoPor == tecnico.Id && a.Assunto == "CHAMADO RECORRENTE");
+                tecnicoChamado.QuantidadeRecorrente = chamados.Count(a => a.IdAbertoPor == tecnico.Id && (a.Assunto == "CHAMADO RECORRENTE"||a.Assunto == "CHAMADO PERDIDO (SEM CONTATO)"));
 
                 tecnicoChamadoColecao.Add(tecnicoChamado);
             }

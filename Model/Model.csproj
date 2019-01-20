@@ -57,8 +57,7 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
@@ -145,12 +144,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportTecnico.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Servicos.ChamadoColecao.datasource" />
     <None Include="Properties\DataSources\Servicos.ClienteColecao.datasource" />
     <None Include="Properties\DataSources\Servicos.ClienteNegocios.datasource" />
     <None Include="Properties\DataSources\Servicos.Entidades.ClienteNR.datasource" />
     <None Include="Properties\DataSources\Servicos.Entidades.ClienteNRColecao.datasource" />
+    <None Include="Properties\DataSources\Servicos.Entidades.TecnicoChamadoColecao.datasource" />
     <None Include="Properties\DataSources\Servicos.ImportarPlanilha.datasource" />
     <None Include="Properties\DataSources\Servicos.RBNumerosEntities.datasource" />
     <None Include="Properties\DataSources\Servicos.tblChamado.datasource" />

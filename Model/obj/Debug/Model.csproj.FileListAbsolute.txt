@@ -91,3 +91,16 @@ C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\pt\Microsoft.ReportVi
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmChamadoTecnico.resources
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll

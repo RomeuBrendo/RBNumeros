@@ -13,36 +13,92 @@ namespace Model
 {
     public partial class FrmChamadoTecnico : Form
     {
-        ChamadoColecao _chamadoColecao = new ChamadoColecao();
+        TecnicoChamadoColecao tecnicoChamadoColecao = new TecnicoChamadoColecao();
+        TecnicoChamadoNegocios tecnicoChamadoNegocios = new TecnicoChamadoNegocios();
+        String _carteira;
 
-        public FrmChamadoTecnico(ChamadoColecao chamadoColecao)
+        public FrmChamadoTecnico(String carteira)
         {
             InitializeComponent();
-
-            _chamadoColecao = chamadoColecao;
+            _carteira = carteira;
+            
+          
         }
 
 
         private void FrmChamadoTecnico_Load(object sender, EventArgs e)
         {
-
-          /*  this.reportViewerTecnicos.RefreshReport();
-
-            var dataSource = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetChamadosTecnico", _chamadoColecao);
-
-            this.reportViewerTecnicos.LocalReport.DataSources.Clear();
-
-            this.reportViewerTecnicos.LocalReport.DataSources.Add(dataSource);*/
+           
+         //   this.reportViewerChamado.RefreshReport();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            
+            ConsultarChamados();
         }
 
         public void ConsultarChamados()
         {
-            
+            tecnicoChamadoColecao = tecnicoChamadoNegocios.ConsultarChamado(dateTimeInicial.Value, dateTimeFinal.Value, _carteira);
+            var dataSourceTecnico = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetTecnico",tecnicoChamadoColecao);
+            this.reportViewerChamado.LocalReport.DataSources.Add(dataSourceTecnico);
+
+            this.reportViewerChamado.RefreshReport();
+        }
+
+        private void btnPesquisar_Click_1(object sender, EventArgs e)
+        {
+            ConsultarChamados();
+        }
+
+      
+
+        private void FrmChamadoTecnico_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.F4)
+                ConsultarChamados();
+
+        }
+
+        private void btnPesquisar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.F4)
+                ConsultarChamados();
+        }
+
+        private void dateTimeInicial_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.F4)
+                ConsultarChamados();
+        }
+
+        private void dateTimeFinal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.F4)
+                ConsultarChamados();
+        }
+
+        private void reportViewerChamado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
+
+            if (e.KeyCode == Keys.F4)
+                ConsultarChamados();
         }
     }
 }

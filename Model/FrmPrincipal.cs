@@ -54,5 +54,12 @@ namespace Model
             frmUsuario.MdiParent = this;
             frmUsuario.Show();
         }
+
+        private void chamadosAbertosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmChamadoTecnico frmChamadoTecnico = new FrmChamadoTecnico(_carteira);
+            frmChamadoTecnico.MdiParent = this;
+            frmChamadoTecnico.Show();
+        }
     }
 }
