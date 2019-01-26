@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.statusStripPrincipal = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUltimoChamado = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarPlanilhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +41,9 @@
             this.movimentaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nRNãoResolvidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.performanceTécnicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chamadosAbertosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gráficoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chamadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripPrincipal.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +52,9 @@
             // 
             this.statusStripPrincipal.BackColor = System.Drawing.Color.White;
             this.statusStripPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel2});
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1,
+            this.lblUltimoChamado});
             this.statusStripPrincipal.Location = new System.Drawing.Point(0, 449);
             this.statusStripPrincipal.Name = "statusStripPrincipal";
             this.statusStripPrincipal.Size = new System.Drawing.Size(1004, 22);
@@ -60,6 +66,17 @@
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(59, 17);
             this.toolStripStatusLabel2.Text = "Versão 1.0";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(236, 17);
+            this.toolStripStatusLabel1.Text = " / Data e Hora último chamado importado: ";
+            // 
+            // lblUltimoChamado
+            // 
+            this.lblUltimoChamado.Name = "lblUltimoChamado";
+            this.lblUltimoChamado.Size = new System.Drawing.Size(0, 17);
             // 
             // menuStrip
             // 
@@ -111,30 +128,45 @@
             this.nRNãoResolvidosToolStripMenuItem,
             this.performanceTécnicoToolStripMenuItem});
             this.movimentaçõesToolStripMenuItem.Name = "movimentaçõesToolStripMenuItem";
-            this.movimentaçõesToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-            this.movimentaçõesToolStripMenuItem.Text = "Movimentações";
+            this.movimentaçõesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.movimentaçõesToolStripMenuItem.Text = "Relátorios";
             // 
             // nRNãoResolvidosToolStripMenuItem
             // 
             this.nRNãoResolvidosToolStripMenuItem.Name = "nRNãoResolvidosToolStripMenuItem";
-            this.nRNãoResolvidosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.nRNãoResolvidosToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.nRNãoResolvidosToolStripMenuItem.Text = "NR Não Resolvidos";
             this.nRNãoResolvidosToolStripMenuItem.Click += new System.EventHandler(this.nRNãoResolvidosToolStripMenuItem_Click);
             // 
             // performanceTécnicoToolStripMenuItem
             // 
             this.performanceTécnicoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chamadosAbertosToolStripMenuItem});
+            this.gráficoToolStripMenuItem,
+            this.chamadosToolStripMenuItem,
+            this.clientesToolStripMenuItem1});
             this.performanceTécnicoToolStripMenuItem.Name = "performanceTécnicoToolStripMenuItem";
-            this.performanceTécnicoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.performanceTécnicoToolStripMenuItem.Text = "Performance Técnico";
+            this.performanceTécnicoToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.performanceTécnicoToolStripMenuItem.Text = "Acompanhamento Técnicos ";
             // 
-            // chamadosAbertosToolStripMenuItem
+            // gráficoToolStripMenuItem
             // 
-            this.chamadosAbertosToolStripMenuItem.Name = "chamadosAbertosToolStripMenuItem";
-            this.chamadosAbertosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.chamadosAbertosToolStripMenuItem.Text = "Chamados";
-            this.chamadosAbertosToolStripMenuItem.Click += new System.EventHandler(this.chamadosAbertosToolStripMenuItem_Click);
+            this.gráficoToolStripMenuItem.Name = "gráficoToolStripMenuItem";
+            this.gráficoToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.gráficoToolStripMenuItem.Text = "Desempenho Equipe";
+            this.gráficoToolStripMenuItem.Click += new System.EventHandler(this.gráficoToolStripMenuItem_Click);
+            // 
+            // chamadosToolStripMenuItem
+            // 
+            this.chamadosToolStripMenuItem.Name = "chamadosToolStripMenuItem";
+            this.chamadosToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.chamadosToolStripMenuItem.Text = "Chamados";
+            this.chamadosToolStripMenuItem.Click += new System.EventHandler(this.chamadosToolStripMenuItem_Click);
+            // 
+            // clientesToolStripMenuItem1
+            // 
+            this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
+            this.clientesToolStripMenuItem1.Text = "Clientes";
             // 
             // FrmPrincipal
             // 
@@ -172,7 +204,11 @@
         private System.Windows.Forms.ToolStripMenuItem nRNãoResolvidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usúariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem performanceTécnicoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chamadosAbertosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lblUltimoChamado;
+        private System.Windows.Forms.ToolStripMenuItem gráficoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chamadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
     }
 }
 

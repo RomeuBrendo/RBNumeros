@@ -62,12 +62,12 @@
                       <GroupExpression>=Fields!Nome.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
-                  <Label>=Fields!Nome.Value</Label>
                   <SortExpressions>
                     <SortExpression>
                       <Value>=Fields!Nome.Value</Value>
                     </SortExpression>
                   </SortExpressions>
+                  <Label>=Fields!Nome.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>

@@ -12,7 +12,7 @@
     <Property Name="IdAbertoPor" Type="int" Nullable="false" />
     <Property Name="TipoChamado" Type="varchar" MaxLength="50" />
     <Property Name="Modulo" Type="varchar" MaxLength="150" />
-    <Property Name="Assunto" Type="varchar" MaxLength="150" />
+    <Property Name="Assunto" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="Titulo" Type="varchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="tblCliente">
@@ -23,6 +23,14 @@
     <Property Name="Nome" Type="varchar" MaxLength="800" />
     <Property Name="Prioridade" Type="varchar" MaxLength="50" />
     <Property Name="Carteira" Type="nchar" MaxLength="10" />
+    <Property Name="IdRede" Type="int" />
+  </EntityType>
+  <EntityType Name="tblRedeCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="tblTecnico">
     <Key>
@@ -57,9 +65,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tblCliente_tblRedeCliente">
+    <End Role="tblRedeCliente" Type="Self.tblRedeCliente" Multiplicity="0..1" />
+    <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRedeCliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblCliente">
+        <PropertyRef Name="IdRede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="RBNumerosModelStoreContainer">
     <EntitySet Name="tblChamado" EntityType="Self.tblChamado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblCliente" EntityType="Self.tblCliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRedeCliente" EntityType="Self.tblRedeCliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTecnico" EntityType="Self.tblTecnico" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_tblChamado_tblCliente" Association="Self.FK_tblChamado_tblCliente">
       <End Role="tblCliente" EntitySet="tblCliente" />
@@ -68,6 +89,10 @@
     <AssociationSet Name="FK_tblChamado_tblTecnico" Association="Self.FK_tblChamado_tblTecnico">
       <End Role="tblTecnico" EntitySet="tblTecnico" />
       <End Role="tblChamado" EntitySet="tblChamado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCliente_tblRedeCliente" Association="Self.FK_tblCliente_tblRedeCliente">
+      <End Role="tblRedeCliente" EntitySet="tblRedeCliente" />
+      <End Role="tblCliente" EntitySet="tblCliente" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

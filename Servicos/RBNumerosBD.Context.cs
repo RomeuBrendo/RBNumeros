@@ -27,6 +27,7 @@ namespace Servicos
     
         public virtual DbSet<tblChamado> tblChamado { get; set; }
         public virtual DbSet<tblCliente> tblCliente { get; set; }
+        public virtual DbSet<tblRedeCliente> tblRedeCliente { get; set; }
         public virtual DbSet<tblTecnico> tblTecnico { get; set; }
     }
 }

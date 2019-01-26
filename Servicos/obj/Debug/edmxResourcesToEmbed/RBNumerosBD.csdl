@@ -12,7 +12,7 @@
     <Property Name="IdAbertoPor" Type="Int32" Nullable="false" />
     <Property Name="TipoChamado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Modulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Name="Assunto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Assunto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Titulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tblCliente" Relationship="Self.FK_tblChamado_tblCliente" FromRole="tblChamado" ToRole="tblCliente" />
     <NavigationProperty Name="tblTecnico" Relationship="Self.FK_tblChamado_tblTecnico" FromRole="tblChamado" ToRole="tblTecnico" />
@@ -25,7 +25,17 @@
     <Property Name="Nome" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
     <Property Name="Prioridade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Carteira" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IdRede" Type="Int32" />
     <NavigationProperty Name="tblChamado" Relationship="Self.FK_tblChamado_tblCliente" FromRole="tblCliente" ToRole="tblChamado" />
+    <NavigationProperty Name="tblRedeCliente" Relationship="Self.FK_tblCliente_tblRedeCliente" FromRole="tblCliente" ToRole="tblRedeCliente" />
+  </EntityType>
+  <EntityType Name="tblRedeCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblCliente" Relationship="Self.FK_tblCliente_tblRedeCliente" FromRole="tblRedeCliente" ToRole="tblCliente" />
   </EntityType>
   <EntityType Name="tblTecnico">
     <Key>
@@ -61,9 +71,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tblCliente_tblRedeCliente">
+    <End Role="tblRedeCliente" Type="Self.tblRedeCliente" Multiplicity="0..1" />
+    <End Role="tblCliente" Type="Self.tblCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRedeCliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblCliente">
+        <PropertyRef Name="IdRede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="RBNumerosEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tblChamado" EntityType="Self.tblChamado" />
     <EntitySet Name="tblCliente" EntityType="Self.tblCliente" />
+    <EntitySet Name="tblRedeCliente" EntityType="Self.tblRedeCliente" />
     <EntitySet Name="tblTecnico" EntityType="Self.tblTecnico" />
     <AssociationSet Name="FK_tblChamado_tblCliente" Association="Self.FK_tblChamado_tblCliente">
       <End Role="tblCliente" EntitySet="tblCliente" />
@@ -72,6 +95,10 @@
     <AssociationSet Name="FK_tblChamado_tblTecnico" Association="Self.FK_tblChamado_tblTecnico">
       <End Role="tblTecnico" EntitySet="tblTecnico" />
       <End Role="tblChamado" EntitySet="tblChamado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCliente_tblRedeCliente" Association="Self.FK_tblCliente_tblRedeCliente">
+      <End Role="tblRedeCliente" EntitySet="tblRedeCliente" />
+      <End Role="tblCliente" EntitySet="tblCliente" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

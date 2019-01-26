@@ -37,6 +37,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rede = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Carteira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -49,6 +50,7 @@
             this.dataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome,
+            this.Rede,
             this.Carteira});
             this.dataGridCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridCliente.Location = new System.Drawing.Point(0, 0);
@@ -56,7 +58,7 @@
             this.dataGridCliente.Name = "dataGridCliente";
             this.dataGridCliente.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridCliente.Size = new System.Drawing.Size(817, 453);
+            this.dataGridCliente.Size = new System.Drawing.Size(893, 453);
             this.dataGridCliente.TabIndex = 0;
             this.dataGridCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridCliente_KeyDown);
             // 
@@ -67,7 +69,7 @@
             this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 431);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(817, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(893, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -91,7 +93,15 @@
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
-            this.Nome.Width = 595;
+            this.Nome.Width = 537;
+            // 
+            // Rede
+            // 
+            this.Rede.DataPropertyName = "RedeNome";
+            this.Rede.HeaderText = "Rede";
+            this.Rede.Name = "Rede";
+            this.Rede.ReadOnly = true;
+            this.Rede.Width = 130;
             // 
             // Carteira
             // 
@@ -107,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 453);
+            this.ClientSize = new System.Drawing.Size(893, 453);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataGridCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -131,6 +141,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rede;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carteira;
     }
 }

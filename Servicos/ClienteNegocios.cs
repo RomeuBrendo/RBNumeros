@@ -13,18 +13,33 @@ namespace Servicos
         {
             RBNumerosEntities et = new RBNumerosEntities();
             ClienteColecao clienteColecao = new ClienteColecao();
+
+            var redes = et.tblRedeCliente.ToList();
+
             var clientes = new List<tblCliente>();
 
             if (carteira != "T")
             {
-                 clientes = et.tblCliente.Where(c => c.Carteira.Equals(carteira)).ToList();
+                clientes = et.tblCliente.Where(c => c.Carteira.Equals(carteira)).AsParallel().ToList();
             }
             else
             {
-                 clientes = et.tblCliente.ToList();
+                 clientes = et.tblCliente.AsParallel().ToList();
             }
 
-            clientes.ForEach(x => { clienteColecao.Add(x); });
+            clientes.ForEach(a => a.RedeNome = redes.Where(b => b.Id.Equals(a.IdRede)).Select(c => c.Nome).ToString());
+
+            foreach(var cliente in clientes)
+            {
+
+                foreach(var rede in redes)
+                {
+                    if (cliente.IdRede == rede.Id)
+                        cliente.RedeNome = rede.Nome;
+                }
+                clienteColecao.Add(cliente);
+            }
+
 
             return clienteColecao;
         }
@@ -52,6 +67,18 @@ namespace Servicos
             et.SaveChanges();
         }
 
+        public void AlterarPrioridadeRede(int idRede, string carteira, string prioridade)
+        {
+            RBNumerosEntities et = new RBNumerosEntities();
+            var clienteColecao = new List<tblCliente>();
+
+            var cliente = et.tblCliente.Where(a => a.IdRede == idRede && a.Carteira == carteira).ToList();
+                     
+            cliente.ForEach(a => { a.Prioridade = prioridade; });
+
+            et.SaveChanges();
+        }
+
         public ClienteNRColecao ChamadosNR(string carteira, DateTime inicial, DateTime final, bool desconsiderarRecorrentes, bool desconsiderarPerdido)
         {
             RBNumerosEntities et = new RBNumerosEntities();
@@ -69,7 +96,7 @@ namespace Servicos
                                                        c.tblTecnico.CarteiraSN==true).ToList();
 
             if (desconsiderarRecorrentes == false)
-                chamadosAuxiliar.RemoveAll(a => a.Assunto == "CHAMADO RECORRENTE");
+                chamadosAuxiliar.RemoveAll(a => a.Assunto == "CHAMADO RECORRENTE" || a.TipoChamado == "RECORRENTE");
 
             if (desconsiderarPerdido == false)
                 chamadosAuxiliar.RemoveAll(a => a.Assunto == "CHAMADO PERDIDO (SEM CONTATO)");
@@ -135,7 +162,7 @@ namespace Servicos
                 var chamados = et.tblChamado.Where(c => c.IdCliente == id && c.DataAbertura.Day >= inicial.Day && c.DataAbertura.Day <= final.Day && c.tblTecnico.CarteiraSN==true).ToList();
 
                 if (recorrentes == false)
-                    chamados.RemoveAll(a => a.Assunto == "CHAMADO RECORRENTE");
+                    chamados.RemoveAll(a => a.Assunto == "CHAMADO RECORRENTE" || a.TipoChamado == "RECORRENTE");
 
                 if (chamadoPerdido == false)
                     chamados.RemoveAll(a => a.Assunto == "CHAMADO PERDIDO (SEM CONTATO)");

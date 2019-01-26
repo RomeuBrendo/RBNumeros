@@ -15,14 +15,13 @@ namespace Model
     {
         TecnicoChamadoColecao tecnicoChamadoColecao = new TecnicoChamadoColecao();
         TecnicoChamadoNegocios tecnicoChamadoNegocios = new TecnicoChamadoNegocios();
-        String _carteira;
+        string _carteira;
 
         public FrmChamadoTecnico(String carteira)
         {
             InitializeComponent();
             _carteira = carteira;
-            
-          
+                     
         }
 
 
@@ -39,8 +38,13 @@ namespace Model
 
         public void ConsultarChamados()
         {
+            tecnicoChamadoColecao.Clear();
             tecnicoChamadoColecao = tecnicoChamadoNegocios.ConsultarChamado(dateTimeInicial.Value, dateTimeFinal.Value, _carteira);
+
             var dataSourceTecnico = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetTecnico",tecnicoChamadoColecao);
+
+            this.reportViewerChamado.LocalReport.DataSources.Clear();
+
             this.reportViewerChamado.LocalReport.DataSources.Add(dataSourceTecnico);
 
             this.reportViewerChamado.RefreshReport();
@@ -49,9 +53,7 @@ namespace Model
         private void btnPesquisar_Click_1(object sender, EventArgs e)
         {
             ConsultarChamados();
-        }
-
-      
+        } 
 
         private void FrmChamadoTecnico_KeyDown(object sender, KeyEventArgs e)
         {

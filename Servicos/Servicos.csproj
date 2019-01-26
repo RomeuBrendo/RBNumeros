@@ -114,12 +114,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChamadoColecao.cs" />
+    <Compile Include="ChamadoUltimaImportacao.cs" />
     <Compile Include="Entidades\ChamadoDetalhado.cs" />
     <Compile Include="Entidades\ChamadoDetalhadoColecao.cs" />
     <Compile Include="Entidades\ClienteNR.cs" />
     <Compile Include="Entidades\ClienteNRColecao.cs" />
     <Compile Include="Entidades\TecnicoChamado.cs" />
     <Compile Include="Entidades\TecnicoChamadoColecao.cs" />
+    <Compile Include="Entidades\TecnicoChamadoRelatorio.cs" />
+    <Compile Include="Entidades\TecnicoChamadoRelatorioColecao.cs" />
     <Compile Include="Entidades\TecnicoColecao.cs" />
     <Compile Include="ImportarPlanilha.cs" />
     <Compile Include="ClienteColecao.cs" />
@@ -146,6 +149,9 @@
     <Compile Include="tblCliente.cs">
       <DependentUpon>RBNumerosBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="tblRedeCliente.cs">
+      <DependentUpon>RBNumerosBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="tblTecnico.cs">
       <DependentUpon>RBNumerosBD.tt</DependentUpon>
     </Compile>
@@ -153,8 +159,6 @@
     <Compile Include="TecnicoNegocios.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <EntityDeploy Include="RBNumerosBD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RBNumerosBD.Designer.cs</LastGenOutput>

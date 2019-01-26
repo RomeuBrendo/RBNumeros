@@ -24,7 +24,6 @@ C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\ExcelNumberFormat.
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\obj\Debug\Servicos.csproj.CopyComplete
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\obj\Debug\Servicos.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\obj\Debug\Servicos.pdb
-C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\Servicos.dll.config
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\Microsoft.Win32.Primitives.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\netstandard.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\System.AppContext.dll

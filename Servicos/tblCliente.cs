@@ -24,8 +24,11 @@ namespace Servicos
         public string Nome { get; set; }
         public string Prioridade { get; set; }
         public string Carteira { get; set; }
+        public string RedeNome { get; set; }
+        public Nullable<int> IdRede { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblChamado> tblChamado { get; set; }
+        public virtual tblRedeCliente tblRedeCliente { get; set; }
     }
 }

@@ -14,12 +14,19 @@ namespace Model
             _carteira = carteira;
 
            this.BackgroundImageLayout = ImageLayout.Stretch;
+
+            CarregarUltimaImportacao();
         }
 
+        public void CarregarUltimaImportacao()
+        {
+            ChamadoUltimaImportacao chamadoUltimaImportacao = new ChamadoUltimaImportacao();
+            lblUltimoChamado.Text = chamadoUltimaImportacao.Consultar().ToString();
+        }
 
         private void importarPlanilhaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            DialogResult dialogResultValidacao = MessageBox.Show("Planilha se encontra no diretorio C:\\RBNUMEROS\\CHAMADOS ?", "Última data importada", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            DialogResult dialogResultValidacao = MessageBox.Show("Planilha se encontra no diretorio C:\\RBNUMEROS\\CHAMADOS ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
             if (dialogResultValidacao == DialogResult.Yes)
             {
@@ -27,6 +34,7 @@ namespace Model
 
                 chamadoServico.InserirChamado();
                 MessageBox.Show("Importação realizada com sucesso");
+                CarregarUltimaImportacao();
             }
         }
 
@@ -55,11 +63,21 @@ namespace Model
             frmUsuario.Show();
         }
 
-        private void chamadosAbertosToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void gráficoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmChamadoTecnico frmChamadoTecnico = new FrmChamadoTecnico(_carteira);
             frmChamadoTecnico.MdiParent = this;
             frmChamadoTecnico.Show();
+        }
+
+        private void chamadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAcoTecnicoFiltroRelatorio frmAcoTecnicoFiltroRelatorio = new FrmAcoTecnicoFiltroRelatorio();
+
+            frmAcoTecnicoFiltroRelatorio.MdiParent = this;
+
+            frmAcoTecnicoFiltroRelatorio.Show();
         }
     }
 }

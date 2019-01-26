@@ -24,6 +24,15 @@
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Prioridade" ColumnName="Prioridade" />
           <ScalarProperty Name="Carteira" ColumnName="Carteira" />
+          <ScalarProperty Name="IdRede" ColumnName="IdRede" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRedeCliente">
+      <EntityTypeMapping TypeName="RBNumerosModel.tblRedeCliente">
+        <MappingFragment StoreEntitySet="tblRedeCliente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

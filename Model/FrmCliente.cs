@@ -1,4 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+using Servicos.Entidades;
 using Servicos;
 
 namespace Model
@@ -35,13 +39,30 @@ namespace Model
         {
             tblCliente cliente = dataGridCliente.SelectedRows[0].DataBoundItem as tblCliente;
 
+            var linha = dataGridCliente.SelectedRows;
+
             cliente.Prioridade = prioriodade;
 
-            clienteNegocios.AlteraPrioridade(cliente.Id, cliente.Prioridade);
+            var idRede = cliente.IdRede;
+
+                        
+
+            DialogResult dialogResultRede = MessageBox.Show("Deja alterar prioridade de toda a rede? ", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (dialogResultRede == DialogResult.No)
+            {
+                clienteNegocios.AlteraPrioridade(cliente.Id, cliente.Prioridade);
+            }
+            else
+            {
+                clienteNegocios.AlterarPrioridadeRede(cliente.IdRede.Value, cliente.Carteira, prioriodade);
+            }
 
             MessageBox.Show("Prioridade alterada com sucesso! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             AtualizaGrid();
+
+            
 
         }
 
