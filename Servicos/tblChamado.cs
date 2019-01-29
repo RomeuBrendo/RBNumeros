@@ -18,6 +18,7 @@ namespace Servicos
         public System.DateTime DataAbertura { get; set; }
         public Nullable<System.DateTime> DataFechamento { get; set; }
         public int IdCliente { get; set; }
+        public string NomeCliente { get; set; }
         public string Carteira { get; set; }
         public int IdAbertoPor { get; set; }
         public string TipoChamado { get; set; }

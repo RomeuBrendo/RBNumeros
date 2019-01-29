@@ -113,6 +113,7 @@
             this.btnGerar.TabIndex = 3;
             this.btnGerar.Text = "Gerar";
             this.btnGerar.UseVisualStyleBackColor = true;
+            this.btnGerar.Click += new System.EventHandler(this.btnGerar_Click);
             this.btnGerar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnGerar_KeyDown);
             // 
             // btnCancelar

@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Servicos;
+using Servicos.Entidades;
 
 namespace Model
 {
     public partial class FrmAcoTecnicoFiltroRelatorio : Form
     {
-        public FrmAcoTecnicoFiltroRelatorio()
+        string _carteira;
+        public FrmAcoTecnicoFiltroRelatorio(string carteira)
         {
             InitializeComponent();
+            _carteira = carteira;
         }
 
         private void cmbTecnico_KeyDown(object sender, KeyEventArgs e)
@@ -50,6 +54,22 @@ namespace Model
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnGerar_Click(object sender, EventArgs e)
+        {
+            GerarRelatorio();
+        }
+
+        public void GerarRelatorio()
+        {
+            TecnicoChamadoNegocios tecnicoChamadoNegocios = new TecnicoChamadoNegocios();
+            TecnicoChamadoRelatorioColecao tecnicoChamadoRelatorios = new TecnicoChamadoRelatorioColecao();
+
+            tecnicoChamadoRelatorios = tecnicoChamadoNegocios.ChamadoRelatorio(dateTimeInicial.Value, dateTimeFinal.Value, _carteira);
+
+            FrmTecnicoRelatorio frmTecnicoRelatorio = new FrmTecnicoRelatorio(tecnicoChamadoRelatorios);
+            frmTecnicoRelatorio.Show();
         }
     }
 }

@@ -127,3 +127,6 @@ C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\System.Security.Ac
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\System.Security.Permissions.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\System.Security.Principal.Windows.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\Castle.Core.xml
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\MoreLinq.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\MoreLinq.pdb
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Servicos\bin\Debug\MoreLinq.xml

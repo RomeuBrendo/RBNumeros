@@ -73,7 +73,7 @@ namespace Model
 
         private void chamadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAcoTecnicoFiltroRelatorio frmAcoTecnicoFiltroRelatorio = new FrmAcoTecnicoFiltroRelatorio();
+            FrmAcoTecnicoFiltroRelatorio frmAcoTecnicoFiltroRelatorio = new FrmAcoTecnicoFiltroRelatorio(_carteira);
 
             frmAcoTecnicoFiltroRelatorio.MdiParent = this;
 

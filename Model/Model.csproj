@@ -120,6 +120,12 @@
     <Compile Include="FrmTecnico.Designer.cs">
       <DependentUpon>FrmTecnico.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTecnicoRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTecnicoRelatorio.Designer.cs">
+      <DependentUpon>FrmTecnicoRelatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -144,6 +150,9 @@
     <EmbeddedResource Include="FrmTecnico.resx">
       <DependentUpon>FrmTecnico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTecnicoRelatorio.resx">
+      <DependentUpon>FrmTecnicoRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -154,6 +163,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ReportTecnico.rdlc" />
+    <EmbeddedResource Include="ReportTecnicoRelatorio.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Servicos.ChamadoColecao.datasource" />
     <None Include="Properties\DataSources\Servicos.ClienteColecao.datasource" />
@@ -161,6 +171,7 @@
     <None Include="Properties\DataSources\Servicos.Entidades.ClienteNR.datasource" />
     <None Include="Properties\DataSources\Servicos.Entidades.ClienteNRColecao.datasource" />
     <None Include="Properties\DataSources\Servicos.Entidades.TecnicoChamadoColecao.datasource" />
+    <None Include="Properties\DataSources\Servicos.Entidades.TecnicoChamadoRelatorio.datasource" />
     <None Include="Properties\DataSources\Servicos.ImportarPlanilha.datasource" />
     <None Include="Properties\DataSources\Servicos.RBNumerosEntities.datasource" />
     <None Include="Properties\DataSources\Servicos.tblChamado.datasource" />
