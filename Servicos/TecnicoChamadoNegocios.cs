@@ -37,21 +37,25 @@ namespace Servicos
 
         }
 
-        public TecnicoChamadoRelatorioColecao ChamadoRelatorio(DateTime inicial, DateTime final, string carteira)
+        public TecnicoChamadoRelatorio ChamadoRelatorio(DateTime inicial, DateTime final, string carteira, int idTecnico)
         {
         
             RBNumerosEntities et = new RBNumerosEntities();
 
+            ChamadoColecao chamadoColecao = new ChamadoColecao();
+
+            TecnicoChamadoRelatorio tecnicoChamadoRelatorio = new TecnicoChamadoRelatorio();
+
             TecnicoChamadoRelatorioColecao tecnicoChamadoRelatorios = new TecnicoChamadoRelatorioColecao();
 
             //Filtra chamados pela data
-            var  chamados = et.tblChamado.Where(c => c.Carteira == carteira && 
+            var  chamados = et.tblChamado.Where(c => c.Carteira == carteira && c.IdAbertoPor == idTecnico &&
                                                 c.DataAbertura.Year >= inicial.Year && c.DataAbertura.Month >= inicial.Month && c.DataAbertura.Day >= inicial.Day &&
                                                 c.DataAbertura.Year <= final.Year && c.DataAbertura.Month <= final.Month && c.DataAbertura.Day <= final.Day).ToList();
 
             //Realiza um Join com a tabela cliente
-            var chamadosClientes = chamados.Join(et.tblCliente, chamado => chamado.IdAbertoPor, cliente => cliente.Id, (chamado, cliente) => new { chamado, cliente })
-                .Where(c => c.cliente.Id == c.chamado.IdAbertoPor).Select(x => new
+            var chamadosClientes = chamados.Join(et.tblCliente, chamado => chamado.IdCliente, cliente => cliente.Id, (chamado, cliente) => new { chamado, cliente })
+                .Where(c => c.cliente.Id == c.chamado.IdCliente).Select(x => new
             {
                 x.chamado.Id,
                 x.chamado.IdAbertoPor,
@@ -60,53 +64,52 @@ namespace Servicos
                 x.chamado.Assunto,
                 x.chamado.DataAbertura,
                 x.chamado.DataFechamento,             
-                x.chamado.tblCliente.Nome
+                x.cliente.Nome,
+                x.chamado.tblTecnico,
+                x.cliente.Prioridade
+
             }).ToList();
 
-            //Filtra somente os tecnicos do periodo, removendo os repetidos e sem carteira
-            var tecnicos = chamadosClientes.Join(et.tblTecnico, chamado => chamado.IdAbertoPor, tecnico => tecnico.Id, (chamado, tecnico) => new { chamado, tecnico }).Where(c => c.tecnico.Id == c.chamado.IdAbertoPor && c.tecnico.CarteiraSN==true).Select(x => new
+
+            chamadosClientes.RemoveAll(a => a.TipoChamado == "RECORRENTE" || a.Assunto == "CHAMADO RECORRENTE" || a.Assunto == "CHAMADO PERDIDO (SEM CONTATO)");
+
+            foreach(var chamado in chamadosClientes)
             {
-                x.tecnico.Id,
-                x.tecnico.Nome
-            }).DistinctBy(a => a.Id).ToList();
+                
+                
+                tblChamado chamadoNovo = new tblChamado();
 
-       
-            //Lista é transferida para coleção
-            foreach (var tecnico in tecnicos)
-            {
-                TecnicoChamadoRelatorio tecnicoChamadoRelatorio = new TecnicoChamadoRelatorio();
-  
-                tecnicoChamadoRelatorio.NomeTecnico = tecnico.Nome;
-                ChamadoColecao chamadoColecao = new ChamadoColecao();
+                chamadoNovo.Assunto = chamado.Assunto;
+                chamadoNovo.DataAbertura = chamado.DataAbertura;
+                chamadoNovo.DataFechamento = chamado.DataFechamento;
+                chamadoNovo.Id = chamado.Id;
+                chamadoNovo.IdAbertoPor = chamado.IdAbertoPor;
+                chamadoNovo.NomeTecnico = chamado.tblTecnico.Nome;
+                chamadoNovo.NomeCliente = chamado.Nome;
+                chamadoNovo.TipoChamado = chamado.TipoChamado;
+                chamadoNovo.Titulo = chamado.Titulo;
 
-                //Coleta somente os chamados de cada tecnico
-                foreach (var chamado in chamadosClientes)
-                {
-                    if (chamado.IdAbertoPor == tecnico.Id)
-                    {
+                if (chamado.Prioridade == "BAIXA")
+                    tecnicoChamadoRelatorio.PrioridadeBaixa += 1;
 
-                        tblChamado chamadoNovo = new tblChamado();
+                if (chamado.Prioridade == "MÉDIA")
+                    tecnicoChamadoRelatorio.PrioridadeMedia += 1;
 
-                        chamadoNovo.Assunto = chamado.Assunto;
-                        chamadoNovo.DataAbertura = chamado.DataAbertura;
-                        chamadoNovo.DataFechamento = chamado.DataFechamento;
-                        chamadoNovo.Id = chamado.Id;
-                        chamadoNovo.IdAbertoPor = chamado.IdAbertoPor;
-                        chamadoNovo.NomeCliente = chamado.Nome;
-                        chamadoNovo.TipoChamado = chamado.TipoChamado;
-                        chamadoNovo.Titulo = chamado.Titulo;
+                if (chamado.Prioridade == "ALTA")
+                    tecnicoChamadoRelatorio.PrioridadeAlta += 1;
 
-                        chamadoColecao.Add(chamadoNovo);
+                if (chamado.Prioridade == null)
+                    tecnicoChamadoRelatorio.PrioridadeNaoDefinida += 1;
 
-                        tecnicoChamadoRelatorio.Chamados = chamadoColecao;
-                    }
-
-                }           
-
-                tecnicoChamadoRelatorios.Add(tecnicoChamadoRelatorio);
+                chamadoColecao.Add(chamadoNovo);
+                          
             }
+            tecnicoChamadoRelatorio.Chamados = chamadoColecao;
 
-            return tecnicoChamadoRelatorios;
+            
+           
+
+            return tecnicoChamadoRelatorio;
         }
 
     }    

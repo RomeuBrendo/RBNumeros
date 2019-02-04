@@ -14,36 +14,46 @@ namespace Model
 {
     public partial class FrmTecnicoRelatorio : Form
     {
+        TecnicoChamadoRelatorio _tecnicoChamadoRelatorio = new TecnicoChamadoRelatorio();
         TecnicoChamadoRelatorioColecao _tecnicoChamadoRelatorios = new TecnicoChamadoRelatorioColecao();
+
         ChamadoColecao _chamadoColecao = new ChamadoColecao();
-        public FrmTecnicoRelatorio(TecnicoChamadoRelatorioColecao tecnicoChamadoRelatorios)
+        public FrmTecnicoRelatorio(TecnicoChamadoRelatorio tecnicoChamadoRelatorio)
         {
             InitializeComponent();
 
-            _tecnicoChamadoRelatorios = tecnicoChamadoRelatorios;
+            _tecnicoChamadoRelatorio = tecnicoChamadoRelatorio;
+            _tecnicoChamadoRelatorios.Add(_tecnicoChamadoRelatorio);
 
             GerarRelatorio();
         }
 
         public void GerarRelatorio()
         {
-            foreach(var chamadoTecnico in _tecnicoChamadoRelatorios)
-            {
-                foreach(var chamado in chamadoTecnico.Chamados)
+            String nomeTecnico = "";
+     
+                foreach(var chamado in _tecnicoChamadoRelatorio.Chamados)
                 {
                     _chamadoColecao.Add(chamado);
+                   nomeTecnico = chamado.NomeTecnico;
                 }
-            }
+
+      
 
             var dataSourceChamado = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetChamado", _chamadoColecao);
-            var dataSourceTecnico = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetTecnicoRelatorio", _tecnicoChamadoRelatorios);
+
+            var dataSourceTecnicoRelatorio = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetTecnicoRelatorio", _tecnicoChamadoRelatorios);
+
 
             this.reportViewerTecnicoRelatorio.LocalReport.DataSources.Clear();
 
             this.reportViewerTecnicoRelatorio.LocalReport.DataSources.Add(dataSourceChamado);
-            this.reportViewerTecnicoRelatorio.LocalReport.DataSources.Add(dataSourceTecnico);
-            this.reportViewerTecnicoRelatorio.LocalReport.Refresh();
+            this.reportViewerTecnicoRelatorio.LocalReport.DataSources.Add(dataSourceTecnicoRelatorio);
 
+            this.reportViewerTecnicoRelatorio.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("NomeTecnico", nomeTecnico));
+            
+
+            this.reportViewerTecnicoRelatorio.LocalReport.Refresh();
 
         }
 

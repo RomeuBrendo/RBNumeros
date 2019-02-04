@@ -34,7 +34,7 @@ namespace Model
 
             else  if (txtNome.Text == "" && txtSenha.Text == "")
             {
-                FrmPrincipal frmPrincipal = new FrmPrincipal("D");
+                FrmPrincipal frmPrincipal = new FrmPrincipal("B");
 
                 frmPrincipal.Show();
             }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAcoTecnicoFiltroRelatorio));
-            this.cmbTecnico = new System.Windows.Forms.ComboBox();
             this.dateTimeInicial = new System.Windows.Forms.DateTimePicker();
             this.dateTimeFinal = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,17 +37,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnGerar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.cmbTecnico = new System.Windows.Forms.ComboBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cmbTecnico
-            // 
-            this.cmbTecnico.FormattingEnabled = true;
-            this.cmbTecnico.Location = new System.Drawing.Point(131, 92);
-            this.cmbTecnico.Name = "cmbTecnico";
-            this.cmbTecnico.Size = new System.Drawing.Size(139, 21);
-            this.cmbTecnico.TabIndex = 0;
-            this.cmbTecnico.Text = "Todos";
-            this.cmbTecnico.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTecnico_KeyDown);
             // 
             // dateTimeInicial
             // 
@@ -127,11 +120,38 @@
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             this.btnCancelar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnCancelar_KeyDown);
             // 
+            // cmbTecnico
+            // 
+            this.cmbTecnico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTecnico.FormattingEnabled = true;
+            this.cmbTecnico.Location = new System.Drawing.Point(131, 92);
+            this.cmbTecnico.Name = "cmbTecnico";
+            this.cmbTecnico.Size = new System.Drawing.Size(187, 21);
+            this.cmbTecnico.TabIndex = 0;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 305);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(365, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(301, 17);
+            this.toolStripStatusLabel1.Text = "Será desconsiderados chamados recorrentes e perdidos.";
+            // 
             // FrmAcoTecnicoFiltroRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 327);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.cmbTecnico);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGerar);
             this.Controls.Add(this.label4);
@@ -140,20 +160,19 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimeFinal);
             this.Controls.Add(this.dateTimeInicial);
-            this.Controls.Add(this.cmbTecnico);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmAcoTecnicoFiltroRelatorio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cmbTecnico;
         private System.Windows.Forms.DateTimePicker dateTimeInicial;
         private System.Windows.Forms.DateTimePicker dateTimeFinal;
         private System.Windows.Forms.Label label1;
@@ -162,5 +181,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGerar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cmbTecnico;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

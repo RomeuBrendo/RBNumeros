@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Servicos;
 using Servicos.Entidades;
@@ -17,7 +10,19 @@ namespace Model
         string _carteira;
         public FrmAcoTecnicoFiltroRelatorio(string carteira)
         {
+            TecnicoColecao tecnicoColecao = new TecnicoColecao();
+            TecnicoNegocios tecnicoNegocios = new TecnicoNegocios();
+
+            tecnicoColecao = tecnicoNegocios.Consultar(carteira);
+
+            tecnicoColecao.RemoveAll(a => a.CarteiraSN == false);
+
             InitializeComponent();
+
+            cmbTecnico.DisplayMember = "Nome";
+            this.cmbTecnico.DataSource = tecnicoColecao;   
+            cmbTecnico.ValueMember = "Id";
+
             _carteira = carteira;
         }
 
@@ -64,11 +69,14 @@ namespace Model
         public void GerarRelatorio()
         {
             TecnicoChamadoNegocios tecnicoChamadoNegocios = new TecnicoChamadoNegocios();
-            TecnicoChamadoRelatorioColecao tecnicoChamadoRelatorios = new TecnicoChamadoRelatorioColecao();
+            TecnicoChamadoRelatorio tecnicoChamadoRelatorio = new TecnicoChamadoRelatorio();
 
-            tecnicoChamadoRelatorios = tecnicoChamadoNegocios.ChamadoRelatorio(dateTimeInicial.Value, dateTimeFinal.Value, _carteira);
+            int idTecnico = Convert.ToInt32(cmbTecnico.SelectedValue);
 
-            FrmTecnicoRelatorio frmTecnicoRelatorio = new FrmTecnicoRelatorio(tecnicoChamadoRelatorios);
+            
+            tecnicoChamadoRelatorio = tecnicoChamadoNegocios.ChamadoRelatorio(dateTimeInicial.Value, dateTimeFinal.Value, _carteira,idTecnico);
+
+            FrmTecnicoRelatorio frmTecnicoRelatorio = new FrmTecnicoRelatorio(tecnicoChamadoRelatorio);
             frmTecnicoRelatorio.Show();
         }
     }

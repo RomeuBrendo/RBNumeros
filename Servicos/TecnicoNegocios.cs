@@ -15,10 +15,10 @@ namespace Servicos
             
             var tecnicos = et.tblTecnico.Where(a => a.Carteira.Equals(carteira)).AsParallel().ToList();
 
-            var plantao = et.tblTecnico.Where(a => a.Nome.Equals("PLANTAO")||a.Nome.Equals("PLANTAO2")).ToList();
+          //  var plantao = et.tblTecnico.Where(a => a.Nome.Equals("PLANTAO")||a.Nome.Equals("PLANTAO2")).ToList();
 
             tecnicos.ForEach(a => { tecnicoColecao.Add(a); });
-            plantao.ForEach(a => { tecnicoColecao.Add(a); });
+          //  plantao.ForEach(a => { tecnicoColecao.Add(a); });
             
             return tecnicoColecao;
         }

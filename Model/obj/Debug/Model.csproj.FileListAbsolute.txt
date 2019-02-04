@@ -130,8 +130,5 @@ C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\pt-BR\Microsoft.Visua
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\pt-BR\Microsoft.VisualStudio.Data.Core.resources.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.exe.config
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmAcoTecnicoFiltroRelatorio.resources
-C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\MoreLinq.dll
-C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\System.ValueTuple.dll
-C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\MoreLinq.pdb
-C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\MoreLinq.xml
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmTecnicoRelatorio.resources
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\Newtonsoft.Json.dll
