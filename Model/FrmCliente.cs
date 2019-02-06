@@ -18,22 +18,23 @@ namespace Model
 
             dataGridCliente.AutoGenerateColumns = false;
             _carteira = carteira;
-            AtualizaGrid();
+            dataGridCliente.DataSource = clienteNegocios.ConsultarCliente(_carteira);
         }
         
         public void AtualizaGrid()
         {
-            tblCliente cliente = new tblCliente();
+       /*     tblCliente cliente = new tblCliente();
             ClienteNegocios clienteNegocios = new ClienteNegocios();
             RBNumerosEntities et = new RBNumerosEntities();
 
-            //Todo
-            //Lembrar de voltar validação por carteira
-            dataGridCliente.DataSource = clienteNegocios.ConsultarCliente(_carteira);
-
+           
+          //  dataGridCliente.DataSource = clienteNegocios.ConsultarCliente(_carteira);
+          */
             dataGridCliente.Update();
             dataGridCliente.Refresh();
         }
+
+
 
         public void AlterarPrioridadeCliente(string prioriodade)
         {
@@ -56,6 +57,7 @@ namespace Model
             else
             {
                 clienteNegocios.AlterarPrioridadeRede(cliente.IdRede.Value, cliente.Carteira, prioriodade);
+                AtualizaGrid();
             }
 
             MessageBox.Show("Prioridade alterada com sucesso! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);

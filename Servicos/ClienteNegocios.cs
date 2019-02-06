@@ -159,7 +159,9 @@ namespace Servicos
           
             try
             {          
-                var chamados = et.tblChamado.Where(c => c.IdCliente == id && c.DataAbertura.Day >= inicial.Day && c.DataAbertura.Day <= final.Day && c.tblTecnico.CarteiraSN==true).ToList();
+                var chamados = et.tblChamado.Where(c => c.IdCliente == id && c.DataAbertura.Year >= inicial.Year && c.DataAbertura.Month >= inicial.Month && c.DataAbertura.Day >= inicial.Day &&
+                                                       c.DataAbertura.Year <= final.Year && c.DataAbertura.Month <= final.Month && c.DataAbertura.Day <= final.Day &&
+                                                       c.tblTecnico.CarteiraSN == true).ToList();
 
                 if (recorrentes == false)
                     chamados.RemoveAll(a => a.Assunto == "CHAMADO RECORRENTE" || a.TipoChamado == "RECORRENTE");

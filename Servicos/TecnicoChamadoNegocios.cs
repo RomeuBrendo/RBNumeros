@@ -71,7 +71,7 @@ namespace Servicos
             }).ToList();
 
 
-            chamadosClientes.RemoveAll(a => a.TipoChamado == "RECORRENTE" || a.Assunto == "CHAMADO RECORRENTE" || a.Assunto == "CHAMADO PERDIDO (SEM CONTATO)");
+            //chamadosClientes.RemoveAll(a => a.TipoChamado == "RECORRENTE" || a.Assunto == "CHAMADO RECORRENTE" || a.Assunto == "CHAMADO PERDIDO (SEM CONTATO)");
 
             foreach(var chamado in chamadosClientes)
             {

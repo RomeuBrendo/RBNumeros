@@ -38,7 +38,9 @@ namespace Model
                    nomeTecnico = chamado.NomeTecnico;
                 }
 
-      
+            int totalChamado = _tecnicoChamadoRelatorio.Chamados.Count;
+            int quantidadeRecorrente = _tecnicoChamadoRelatorio.Chamados.Where(a => a.TipoChamado == "RECORRENTE" || a.Assunto == "CHAMADO RECORRENTE" || a.Assunto == "CHAMADO PERDIDO (SEM CONTATO)").Count();
+            int quantidade = _tecnicoChamadoRelatorio.Chamados.Where(a => a.TipoChamado != "RECORRENTE" && a.Assunto != "CHAMADO RECORRENTE" && a.Assunto != "CHAMADO PERDIDO (SEM CONTATO)").Count();
 
             var dataSourceChamado = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetChamado", _chamadoColecao);
 
@@ -50,8 +52,11 @@ namespace Model
             this.reportViewerTecnicoRelatorio.LocalReport.DataSources.Add(dataSourceChamado);
             this.reportViewerTecnicoRelatorio.LocalReport.DataSources.Add(dataSourceTecnicoRelatorio);
 
-            this.reportViewerTecnicoRelatorio.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("NomeTecnico", nomeTecnico));
-            
+             this.reportViewerTecnicoRelatorio.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("NomeTecnico", nomeTecnico));
+              this.reportViewerTecnicoRelatorio.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("QuantidadeRecorrente", quantidadeRecorrente.ToString()));
+              this.reportViewerTecnicoRelatorio.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("Quantidade", quantidade.ToString()));
+              this.reportViewerTecnicoRelatorio.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("TotalChamados", totalChamado.ToString()));
+
 
             this.reportViewerTecnicoRelatorio.LocalReport.Refresh();
 
