@@ -89,5 +89,14 @@ namespace Model
 
             frmAcoTecnicoFiltroRelatorio.Show();
         }
+
+        private void clientePorPrioridadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmClientePrioridadeFiltro frmClientePrioridadeFiltro = new FrmClientePrioridadeFiltro();
+
+            frmClientePrioridadeFiltro.MdiParent = this;
+
+            frmClientePrioridadeFiltro.Show();
+        }
     }
 }

@@ -96,6 +96,12 @@
     <Compile Include="FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmClientePrioridadeFiltro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClientePrioridadeFiltro.Designer.cs">
+      <DependentUpon>FrmClientePrioridadeFiltro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClientePrioridadeFiltro.resx">
+      <DependentUpon>FrmClientePrioridadeFiltro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
