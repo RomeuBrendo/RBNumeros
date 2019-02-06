@@ -66,12 +66,22 @@ namespace Model
 
         private void gráficoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+          
+        }
+
+        private void chamadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void performanceTécnicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             FrmChamadoTecnico frmChamadoTecnico = new FrmChamadoTecnico(_carteira);
             frmChamadoTecnico.MdiParent = this;
             frmChamadoTecnico.Show();
         }
 
-        private void chamadosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void chamadosPorTécnicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAcoTecnicoFiltroRelatorio frmAcoTecnicoFiltroRelatorio = new FrmAcoTecnicoFiltroRelatorio(_carteira);
 
