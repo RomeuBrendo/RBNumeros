@@ -12,11 +12,11 @@ namespace Servicos
         public ChamadoColecao ChamadoPrioridade(string prioridade,string carteira,DateTime inicial, DateTime final)
         {
             RBNumerosEntities et = new RBNumerosEntities();
-            ChamadoColecao chamadoColecao = new ChamadoColecao();  
+            ChamadoColecao chamadoColecao = new ChamadoColecao();
 
-          
-         
-               var  chamados = et.tblChamado.Where(c => c.Carteira == carteira &&
+
+
+            var chamados = et.tblChamado.Where(c => c.Carteira == carteira && c.tblTecnico.CarteiraSN == true &&
                                                 c.DataAbertura.Year >= inicial.Year && c.DataAbertura.Month >= inicial.Month && c.DataAbertura.Day >= inicial.Day &&
                                                 c.DataAbertura.Year <= final.Year && c.DataAbertura.Month <= final.Month && c.DataAbertura.Day <= final.Day).ToList();
 
