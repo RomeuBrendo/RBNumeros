@@ -44,6 +44,41 @@ namespace Servicos
             return clienteColecao;
         }
 
+        public ClienteColecao ConsultarClienteSemPrioridade(string carteira)
+        {
+            RBNumerosEntities et = new RBNumerosEntities();
+            ClienteColecao clienteColecao = new ClienteColecao();
+
+            var redes = et.tblRedeCliente.ToList();
+
+            var clientes = new List<tblCliente>();
+
+            if (carteira != "T")
+            {
+                clientes = et.tblCliente.Where(c => c.Carteira.Equals(carteira) && c.Prioridade==null).AsParallel().ToList();
+            }
+            else
+            {
+                clientes = et.tblCliente.AsParallel().ToList();
+            }
+
+            clientes.ForEach(a => a.RedeNome = redes.Where(b => b.Id.Equals(a.IdRede)).Select(c => c.Nome).ToString());
+
+            foreach (var cliente in clientes)
+            {
+
+                foreach (var rede in redes)
+                {
+                    if (cliente.IdRede == rede.Id)
+                        cliente.RedeNome = rede.Nome;
+                }
+                clienteColecao.Add(cliente);
+            }
+
+
+            return clienteColecao;
+        }
+
         public ChamadoColecao ConsultarChamado(string carteira)
         {
             RBNumerosEntities et = new RBNumerosEntities();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmChamadoTecnico));
             this.dateTimeInicial = new System.Windows.Forms.DateTimePicker();
             this.dateTimeFinal = new System.Windows.Forms.DateTimePicker();
             this.reportViewerChamado = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -42,7 +43,7 @@
             this.dateTimeInicial.Location = new System.Drawing.Point(79, 12);
             this.dateTimeInicial.Name = "dateTimeInicial";
             this.dateTimeInicial.Size = new System.Drawing.Size(90, 20);
-            this.dateTimeInicial.TabIndex = 1;
+            this.dateTimeInicial.TabIndex = 0;
             this.dateTimeInicial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimeInicial_KeyDown);
             // 
             // dateTimeFinal
@@ -51,7 +52,7 @@
             this.dateTimeFinal.Location = new System.Drawing.Point(250, 12);
             this.dateTimeFinal.Name = "dateTimeFinal";
             this.dateTimeFinal.Size = new System.Drawing.Size(86, 20);
-            this.dateTimeFinal.TabIndex = 2;
+            this.dateTimeFinal.TabIndex = 1;
             this.dateTimeFinal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimeFinal_KeyDown);
             // 
             // reportViewerChamado
@@ -70,7 +71,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(398, 12);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 4;
+            this.btnPesquisar.TabIndex = 2;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click_1);
@@ -106,6 +107,7 @@
             this.Controls.Add(this.dateTimeFinal);
             this.Controls.Add(this.dateTimeInicial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmChamadoTecnico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

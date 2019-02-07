@@ -23,13 +23,13 @@ namespace Model
         
         public void AtualizaGrid()
         {
-       /*     tblCliente cliente = new tblCliente();
+            tblCliente cliente = new tblCliente();
             ClienteNegocios clienteNegocios = new ClienteNegocios();
             RBNumerosEntities et = new RBNumerosEntities();
 
            
-          //  dataGridCliente.DataSource = clienteNegocios.ConsultarCliente(_carteira);
-          */
+            dataGridCliente.DataSource = clienteNegocios.ConsultarCliente(_carteira);
+          
             dataGridCliente.Update();
             dataGridCliente.Refresh();
         }
@@ -82,6 +82,14 @@ namespace Model
             {
                 AlterarPrioridadeCliente("ALTA");
             }
+
+          else if (e.KeyCode == Keys.S)
+                dataGridCliente.DataSource = clienteNegocios.ConsultarClienteSemPrioridade(_carteira);
+        }
+
+        private void FrmCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+    
         }
     }
 }
