@@ -92,7 +92,9 @@
                       <ChartDataLabel>
                         <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
+                        <ToolTip>=Sum(Fields!QuantidadeRecorrente.Value, "DataSetTecnico")</ToolTip>
                       </ChartDataLabel>
+                      <ToolTip>=Fields!Quantidade.Value</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -128,6 +130,7 @@
                         <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                       </ChartDataLabel>
+                      <ToolTip>=Fields!QuantidadeRecorrente.Value</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
