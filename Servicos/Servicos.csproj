@@ -122,10 +122,13 @@
   <ItemGroup>
     <Compile Include="ChamadoColecao.cs" />
     <Compile Include="ChamadoUltimaImportacao.cs" />
+    <Compile Include="ClientePrioridadeNegocio.cs" />
     <Compile Include="Entidades\ChamadoDetalhado.cs" />
     <Compile Include="Entidades\ChamadoDetalhadoColecao.cs" />
     <Compile Include="Entidades\ClienteNR.cs" />
     <Compile Include="Entidades\ClienteNRColecao.cs" />
+    <Compile Include="Entidades\ClientePrioridade.cs" />
+    <Compile Include="Entidades\ClientePrioridadeColecao.cs" />
     <Compile Include="Entidades\TecnicoChamado.cs" />
     <Compile Include="Entidades\TecnicoChamadoColecao.cs" />
     <Compile Include="Entidades\TecnicoChamadoRelatorio.cs" />

@@ -12,14 +12,30 @@ namespace Model
 {
     public partial class FrmClientePrioridadeFiltro : Form
     {
-        public FrmClientePrioridadeFiltro()
+        string _carteira;
+
+        public FrmClientePrioridadeFiltro(String carteira)
         {
             InitializeComponent();
+            _carteira = carteira;
         }
 
         private void FrmClientePrioridadeFiltro_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGerar_Click(object sender, EventArgs e)
+        {
+            FrmClientePrioridade frmClientePrioridade = new FrmClientePrioridade(dateTimeInicial.Value, dateTimeFinal.Value,cmbPrioridade.Text,_carteira);
+           // frmClientePrioridade.MdiParent = this;
+            frmClientePrioridade.Show();
+           
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

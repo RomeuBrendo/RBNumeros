@@ -92,7 +92,7 @@ namespace Model
 
         private void clientePorPrioridadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmClientePrioridadeFiltro frmClientePrioridadeFiltro = new FrmClientePrioridadeFiltro();
+            FrmClientePrioridadeFiltro frmClientePrioridadeFiltro = new FrmClientePrioridadeFiltro(_carteira);
 
             frmClientePrioridadeFiltro.MdiParent = this;
 

@@ -133,3 +133,4 @@ C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmAcoTecnicoFi
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmTecnicoRelatorio.resources
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\Newtonsoft.Json.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmClientePrioridadeFiltro.resources
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmClientePrioridade.resources
