@@ -11,6 +11,7 @@ namespace Model
     {
         ClienteNegocios clienteNegocios = new ClienteNegocios();
         string _carteira;
+        bool situaçãoGrid = true;
 
         public FrmCliente(string carteira)
         {
@@ -18,23 +19,24 @@ namespace Model
 
             dataGridCliente.AutoGenerateColumns = false;
             _carteira = carteira;
-            dataGridCliente.DataSource = clienteNegocios.ConsultarCliente(_carteira);
+            CarregarGrid();
         }
         
         public void AtualizaGrid()
-        {
-            tblCliente cliente = new tblCliente();
-            ClienteNegocios clienteNegocios = new ClienteNegocios();
-            RBNumerosEntities et = new RBNumerosEntities();
-
-           
-            dataGridCliente.DataSource = clienteNegocios.ConsultarCliente(_carteira);
-          
+        {       
             dataGridCliente.Update();
             dataGridCliente.Refresh();
         }
 
+        public void CarregarGrid()
+        {
+            dataGridCliente.DataSource = clienteNegocios.ConsultarCliente(_carteira);
+        }
 
+        public void CarregarGridSemPrioridade()
+        {
+            dataGridCliente.DataSource = clienteNegocios.ConsultarClienteSemPrioridade(_carteira);
+        }
 
         public void AlterarPrioridadeCliente(string prioriodade)
         {
@@ -62,7 +64,14 @@ namespace Model
 
             MessageBox.Show("Prioridade alterada com sucesso! ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            AtualizaGrid();
+            if (situaçãoGrid == true)
+            {
+                AtualizaGrid();
+            }
+            else
+            {
+                CarregarGridSemPrioridade();
+            }
 
             
 
@@ -70,26 +79,31 @@ namespace Model
 
         private void dataGridCliente_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.B)
+            if (e.KeyCode == Keys.B)
             {
                 AlterarPrioridadeCliente("BAIXA");
             }
-            else if(e.KeyCode == Keys.M)
+            else if (e.KeyCode == Keys.M)
             {
                 AlterarPrioridadeCliente("MÉDIA");
             }
-            else if(e.KeyCode == Keys.A)
+            else if (e.KeyCode == Keys.A)
             {
                 AlterarPrioridadeCliente("ALTA");
             }
 
-          else if (e.KeyCode == Keys.S)
-                dataGridCliente.DataSource = clienteNegocios.ConsultarClienteSemPrioridade(_carteira);
+            else if (e.KeyCode == Keys.S)
+            {
+                CarregarGridSemPrioridade();
+                situaçãoGrid = false;
+            }
+
+            else if (e.KeyCode == Keys.Escape)
+            {
+                CarregarGrid();
+                situaçãoGrid = true;
+            }
         }
 
-        private void FrmCliente_KeyDown(object sender, KeyEventArgs e)
-        {
-    
-        }
     }
 }
