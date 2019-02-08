@@ -8,6 +8,9 @@ namespace Model
         public FrmLogin()
         {
             InitializeComponent();
+
+            txtNome.CharacterCasing = CharacterCasing.Upper;
+            txtSenha.CharacterCasing = CharacterCasing.Upper;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -25,6 +28,7 @@ namespace Model
 
         public void ValidacaoUsuario()
         {
+
             if (txtNome.Text == "ARTUR" && txtSenha.Text == "123")
             {
                 FrmPrincipal frmPrincipal = new FrmPrincipal("A");
@@ -32,11 +36,12 @@ namespace Model
                 frmPrincipal.Show();
             }
 
-            else  if (txtNome.Text == "" && txtSenha.Text == "")
+            else  if (txtNome.Text == "ROMEU" && txtSenha.Text == "123")
             {
                 FrmPrincipal frmPrincipal = new FrmPrincipal("B");
 
-                frmPrincipal.Show();
+                 frmPrincipal.Show();
+           
             }
             else if (txtNome.Text == "LAURA" && txtSenha.Text == "123")
             {
@@ -62,6 +67,8 @@ namespace Model
                 MessageBox.Show("Usuario ou senha errado. Consulte o adm.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             
             }
+
+            
         }
 
         private void txtSenha_KeyDown(object sender, KeyEventArgs e)

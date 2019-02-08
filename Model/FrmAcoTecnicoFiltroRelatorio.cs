@@ -22,6 +22,7 @@ namespace Model
             cmbTecnico.DisplayMember = "Nome";
             this.cmbTecnico.DataSource = tecnicoColecao;   
             cmbTecnico.ValueMember = "Id";
+            cmbTecnico.SelectedIndex = -1;
 
             _carteira = carteira;
         }

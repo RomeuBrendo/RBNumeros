@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Servicos;
 
@@ -22,9 +15,11 @@ namespace Model
 
             _carteira = carteira;
 
+            
             cmbRede.DisplayMember = "Nome";
             this.cmbRede.DataSource = clienteNegocios.ConsultarRede(_carteira);
             cmbRede.ValueMember = "Id";
+            cmbRede.SelectedIndex = -1;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

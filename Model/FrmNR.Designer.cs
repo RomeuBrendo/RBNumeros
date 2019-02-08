@@ -124,7 +124,7 @@
             this.checkBoxRecorrente.Location = new System.Drawing.Point(345, 26);
             this.checkBoxRecorrente.Name = "checkBoxRecorrente";
             this.checkBoxRecorrente.Size = new System.Drawing.Size(137, 17);
-            this.checkBoxRecorrente.TabIndex = 6;
+            this.checkBoxRecorrente.TabIndex = 2;
             this.checkBoxRecorrente.Text = "Chamados Recorrentes";
             this.checkBoxRecorrente.UseVisualStyleBackColor = true;
             // 
@@ -133,7 +133,7 @@
             this.btnCarregar.Location = new System.Drawing.Point(682, 24);
             this.btnCarregar.Name = "btnCarregar";
             this.btnCarregar.Size = new System.Drawing.Size(75, 23);
-            this.btnCarregar.TabIndex = 7;
+            this.btnCarregar.TabIndex = 4;
             this.btnCarregar.Text = "Carregar";
             this.btnCarregar.UseVisualStyleBackColor = true;
             this.btnCarregar.Click += new System.EventHandler(this.btnCarregar_Click);
@@ -146,7 +146,7 @@
             this.checkBoxPerdido.Location = new System.Drawing.Point(488, 28);
             this.checkBoxPerdido.Name = "checkBoxPerdido";
             this.checkBoxPerdido.Size = new System.Drawing.Size(181, 17);
-            this.checkBoxPerdido.TabIndex = 8;
+            this.checkBoxPerdido.TabIndex = 3;
             this.checkBoxPerdido.Text = "Chamado Perdido / Sem contato";
             this.checkBoxPerdido.UseVisualStyleBackColor = true;
             // 
@@ -210,7 +210,7 @@
             this.dataGridNRDetalhado.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridNRDetalhado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridNRDetalhado.Size = new System.Drawing.Size(745, 413);
-            this.dataGridNRDetalhado.TabIndex = 2;
+            this.dataGridNRDetalhado.TabIndex = 0;
             this.dataGridNRDetalhado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridNRDetalhado_KeyDown);
             // 
             // Chamado
@@ -273,7 +273,7 @@
             this.dateTimeInicial.Location = new System.Drawing.Point(80, 24);
             this.dateTimeInicial.Name = "dateTimeInicial";
             this.dateTimeInicial.Size = new System.Drawing.Size(90, 20);
-            this.dateTimeInicial.TabIndex = 13;
+            this.dateTimeInicial.TabIndex = 0;
             // 
             // dateTimeFinal
             // 
@@ -281,7 +281,7 @@
             this.dateTimeFinal.Location = new System.Drawing.Point(238, 25);
             this.dateTimeFinal.Name = "dateTimeFinal";
             this.dateTimeFinal.Size = new System.Drawing.Size(90, 20);
-            this.dateTimeFinal.TabIndex = 14;
+            this.dateTimeFinal.TabIndex = 1;
             // 
             // FrmNR
             // 

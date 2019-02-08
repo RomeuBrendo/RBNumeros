@@ -9,6 +9,8 @@ namespace Model
         public FrmPrincipal(String carteira)
         {
             InitializeComponent();
+
+
             FrmLogin frmLogin = new FrmLogin();
         
             _carteira = carteira;
