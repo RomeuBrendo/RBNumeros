@@ -129,6 +129,7 @@
     <Compile Include="Entidades\ClienteNRColecao.cs" />
     <Compile Include="Entidades\ClientePrioridade.cs" />
     <Compile Include="Entidades\ClientePrioridadeColecao.cs" />
+    <Compile Include="Entidades\ClienteRedeColecao.cs" />
     <Compile Include="Entidades\TecnicoChamado.cs" />
     <Compile Include="Entidades\TecnicoChamadoColecao.cs" />
     <Compile Include="Entidades\TecnicoChamadoRelatorio.cs" />

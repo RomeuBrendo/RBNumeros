@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using MoreLinq;
 using Servicos.Entidades;
 
 namespace Servicos

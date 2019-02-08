@@ -108,6 +108,18 @@
     <Compile Include="FrmClientePrioridadeFiltro.Designer.cs">
       <DependentUpon>FrmClientePrioridadeFiltro.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmClienteRedeFiltro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClienteRedeFiltro.Designer.cs">
+      <DependentUpon>FrmClienteRedeFiltro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClienteRedeRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClienteRedeRelatorio.Designer.cs">
+      <DependentUpon>FrmClienteRedeRelatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +168,12 @@
     <EmbeddedResource Include="FrmClientePrioridadeFiltro.resx">
       <DependentUpon>FrmClientePrioridadeFiltro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmClienteRedeFiltro.resx">
+      <DependentUpon>FrmClienteRedeFiltro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClienteRedeRelatorio.resx">
+      <DependentUpon>FrmClienteRedeRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +199,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ReportClientePrioridade.rdlc" />
+    <EmbeddedResource Include="ReportClienteRede.rdlc" />
     <EmbeddedResource Include="ReportTecnico.rdlc" />
     <EmbeddedResource Include="ReportTecnicoRelatorio.rdlc" />
     <None Include="packages.config" />
@@ -189,6 +208,7 @@
     <None Include="Properties\DataSources\Servicos.ClienteNegocios.datasource" />
     <None Include="Properties\DataSources\Servicos.Entidades.ClienteNR.datasource" />
     <None Include="Properties\DataSources\Servicos.Entidades.ClienteNRColecao.datasource" />
+    <None Include="Properties\DataSources\Servicos.Entidades.ClienteRedeColecao.datasource" />
     <None Include="Properties\DataSources\Servicos.Entidades.TecnicoChamadoColecao.datasource" />
     <None Include="Properties\DataSources\Servicos.Entidades.TecnicoChamadoRelatorio.datasource" />
     <None Include="Properties\DataSources\Servicos.ImportarPlanilha.datasource" />

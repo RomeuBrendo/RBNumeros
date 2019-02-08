@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using MoreLinq;
 using Servicos.Entidades;
+
 
 namespace Servicos
 {
@@ -42,6 +44,41 @@ namespace Servicos
 
 
             return clienteColecao;
+        }
+
+        public ClienteColecao ConsultarClienteRede(string cartira, int rede)
+        {
+            ClienteColecao clienteColecao = new ClienteColecao();
+            RBNumerosEntities et = new RBNumerosEntities();
+
+           var clientes = et.tblCliente.Where(a => a.IdRede == rede && a.Carteira == cartira).ToList();
+
+            clientes.ForEach(a => { clienteColecao.Add(a); });
+
+            return clienteColecao;
+        } 
+        
+        //Preenche combox na tela do filtro
+        public ClienteRedeColecao ConsultarRede(string carteira)
+        {
+            RBNumerosEntities et = new RBNumerosEntities();
+            ClienteRedeColecao clienteRedeColecao = new ClienteRedeColecao();
+
+            var redes = et.tblCliente.Where(a => a.Carteira == carteira).AsParallel().ToList();
+
+            foreach(var rede in redes)
+            {
+                tblRedeCliente redeCliente = new tblRedeCliente();
+
+                redeCliente.Id =Convert.ToInt32(rede.IdRede);
+                redeCliente.Nome = rede.tblRedeCliente.Nome;
+
+                clienteRedeColecao.Add(redeCliente);
+            }
+
+            clienteRedeColecao.DistinctBy(a => a.Id);
+
+            return clienteRedeColecao;
         }
 
         public ClienteColecao ConsultarClienteSemPrioridade(string carteira)

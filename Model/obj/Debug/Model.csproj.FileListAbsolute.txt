@@ -134,3 +134,9 @@ C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmTecnicoRelat
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\Newtonsoft.Json.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmClientePrioridadeFiltro.resources
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmClientePrioridade.resources
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmClienteRedeFiltro.resources
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\MoreLinq.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\System.ValueTuple.dll
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\MoreLinq.pdb
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\MoreLinq.xml
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmClienteRedeRelatorio.resources

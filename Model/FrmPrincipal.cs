@@ -98,5 +98,14 @@ namespace Model
 
             frmClientePrioridadeFiltro.Show();
         }
+
+        private void clientesRedeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmClienteRedeFiltro frmClienteRedeFiltro = new FrmClienteRedeFiltro(_carteira);
+
+            frmClienteRedeFiltro.MdiParent = this;
+
+            frmClienteRedeFiltro.Show();
+        }
     }
 }

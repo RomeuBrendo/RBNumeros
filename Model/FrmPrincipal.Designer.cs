@@ -106,21 +106,21 @@
             // importarPlanilhaToolStripMenuItem
             // 
             this.importarPlanilhaToolStripMenuItem.Name = "importarPlanilhaToolStripMenuItem";
-            this.importarPlanilhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importarPlanilhaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.importarPlanilhaToolStripMenuItem.Text = "Importar Planilha";
             this.importarPlanilhaToolStripMenuItem.Click += new System.EventHandler(this.importarPlanilhaToolStripMenuItem_Click_1);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click_1);
             // 
             // usúariosToolStripMenuItem
             // 
             this.usúariosToolStripMenuItem.Name = "usúariosToolStripMenuItem";
-            this.usúariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usúariosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.usúariosToolStripMenuItem.Text = "Técnicos";
             this.usúariosToolStripMenuItem.Click += new System.EventHandler(this.usúariosToolStripMenuItem_Click);
             // 
@@ -176,6 +176,7 @@
             this.clientesRedeToolStripMenuItem.Name = "clientesRedeToolStripMenuItem";
             this.clientesRedeToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.clientesRedeToolStripMenuItem.Text = "Clientes Rede";
+            this.clientesRedeToolStripMenuItem.Click += new System.EventHandler(this.clientesRedeToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
