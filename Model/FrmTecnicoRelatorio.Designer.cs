@@ -32,12 +32,21 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTecnicoRelatorio));
-            this.reportViewerTecnicoRelatorio = new Microsoft.Reporting.WinForms.ReportViewer();
             this.TecnicoChamadoRelatorioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ClienteColecaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewerTecnicoRelatorio = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.TecnicoChamadoRelatorioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteColecaoBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // TecnicoChamadoRelatorioBindingSource
+            // 
+            this.TecnicoChamadoRelatorioBindingSource.DataSource = typeof(Servicos.Entidades.TecnicoChamadoRelatorio);
+            // 
+            // ClienteColecaoBindingSource
+            // 
+            this.ClienteColecaoBindingSource.DataMember = "tblChamado";
+            this.ClienteColecaoBindingSource.DataSource = typeof(Servicos.ClienteColecao);
             // 
             // reportViewerTecnicoRelatorio
             // 
@@ -55,15 +64,6 @@
             this.reportViewerTecnicoRelatorio.Size = new System.Drawing.Size(800, 450);
             this.reportViewerTecnicoRelatorio.TabIndex = 0;
             // 
-            // TecnicoChamadoRelatorioBindingSource
-            // 
-            this.TecnicoChamadoRelatorioBindingSource.DataSource = typeof(Servicos.Entidades.TecnicoChamadoRelatorio);
-            // 
-            // ClienteColecaoBindingSource
-            // 
-            this.ClienteColecaoBindingSource.DataMember = "tblChamado";
-            this.ClienteColecaoBindingSource.DataSource = typeof(Servicos.ClienteColecao);
-            // 
             // FrmTecnicoRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -71,7 +71,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewerTecnicoRelatorio);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "FrmTecnicoRelatorio";
             this.Text = "Técnico Relatorio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

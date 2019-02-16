@@ -13,16 +13,19 @@ namespace Model
             TecnicoColecao tecnicoColecao = new TecnicoColecao();
             TecnicoNegocios tecnicoNegocios = new TecnicoNegocios();
 
-            tecnicoColecao = tecnicoNegocios.Consultar(carteira);
+             tecnicoColecao = tecnicoNegocios.Consultar(carteira);
+            
 
             tecnicoColecao.RemoveAll(a => a.CarteiraSN == false);
 
-            InitializeComponent();
 
+            InitializeComponent();
+            
             cmbTecnico.DisplayMember = "Nome";
-            this.cmbTecnico.DataSource = tecnicoColecao;   
+            this.cmbTecnico.DataSource = tecnicoColecao;
             cmbTecnico.ValueMember = "Id";
             cmbTecnico.SelectedIndex = -1;
+          
 
             _carteira = carteira;
         }

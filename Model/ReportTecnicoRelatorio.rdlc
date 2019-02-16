@@ -395,7 +395,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -631,6 +630,7 @@
                         <Style />
                         <UseValueAsLabel>true</UseValueAsLabel>
                       </ChartDataLabel>
+                      <ToolTip>=Sum(Fields!PrioridadeAlta.Value)</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -665,6 +665,7 @@
                       <ChartDataLabel>
                         <Style />
                       </ChartDataLabel>
+                      <ToolTip>=Sum(Fields!PrioridadeBaixa.Value)</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -699,6 +700,7 @@
                       <ChartDataLabel>
                         <Style />
                       </ChartDataLabel>
+                      <ToolTip>=Sum(Fields!PrioridadeMedia.Value)</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />
@@ -733,6 +735,7 @@
                       <ChartDataLabel>
                         <Style />
                       </ChartDataLabel>
+                      <ToolTip>=Sum(Fields!PrioridadeNaoDefinida.Value)</ToolTip>
                       <Style />
                       <ChartMarker>
                         <Style />

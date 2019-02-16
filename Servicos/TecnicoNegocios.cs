@@ -13,7 +13,7 @@ namespace Servicos
         public TecnicoColecao Consultar(string carteira)
         {
             
-            var tecnicos = et.tblTecnico.Where(a => a.Carteira.Equals(carteira)).AsParallel().ToList();
+            var tecnicos = et.tblTecnico.Where(a => a.Carteira.Equals(carteira)).AsParallel().ToList().OrderBy(a => a.Nome).ToList();
 
           //  var plantao = et.tblTecnico.Where(a => a.Nome.Equals("PLANTAO")||a.Nome.Equals("PLANTAO2")).ToList();
 
