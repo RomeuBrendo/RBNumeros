@@ -28,9 +28,12 @@ namespace Servicos
                 tecnicoChamado.Quantidade = chamados.Count(a => a.IdAbertoPor == tecnico.Id);
                 tecnicoChamado.QuantidadeRecorrente = chamados.Count(a => a.IdAbertoPor == tecnico.Id && (a.Assunto == "CHAMADO RECORRENTE"||a.Assunto == "CHAMADO PERDIDO (SEM CONTATO)" || a.TipoChamado == "RECORRENTE"));
 
+                tecnicoChamado.Quantidade = tecnicoChamado.Quantidade - tecnicoChamado.QuantidadeRecorrente;
+
                 tecnicoChamadoColecao.Add(tecnicoChamado);
             }
 
+            
 
             return tecnicoChamadoColecao;
 
