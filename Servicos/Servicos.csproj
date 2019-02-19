@@ -135,6 +135,12 @@
     <Compile Include="Entidades\TecnicoChamadoRelatorio.cs" />
     <Compile Include="Entidades\TecnicoChamadoRelatorioColecao.cs" />
     <Compile Include="Entidades\TecnicoColecao.cs" />
+    <Compile Include="FrmBarraProgresso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBarraProgresso.Designer.cs">
+      <DependentUpon>FrmBarraProgresso.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportarPlanilha.cs" />
     <Compile Include="ClienteColecao.cs" />
     <Compile Include="ClienteNegocios.cs" />
@@ -170,17 +176,23 @@
     <Compile Include="TecnicoNegocios.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <EntityDeploy Include="RBNumerosBD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RBNumerosBD.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="packages.config" />
     <None Include="RBNumerosBD.edmx.diagram">
       <DependentUpon>RBNumerosBD.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmBarraProgresso.resx">
+      <DependentUpon>FrmBarraProgresso.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="RBNumerosBD.Context.tt">

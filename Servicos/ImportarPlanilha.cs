@@ -1,21 +1,30 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using ClosedXML.Excel;
 
+
 namespace Servicos
 {
+    
+
     public class ImportarPlanilha
     {
+        int totalChamados = 0;
+
+
         //Inseri um novo chamado
         public void InserirChamado()
         {
-     
+           
             tblCliente cliente = new tblCliente();
             tblTecnico tecnico = new tblTecnico();
+
 
             var wb = new XLWorkbook(@"C:\RBNumeros\chamados.xlsx");
             var planilha = wb.Worksheet(1);
             var linha = 2;
+
 
             while (true)
             {
@@ -27,13 +36,13 @@ namespace Servicos
                 var numeroChamado = planilha.Cell("A" + linha.ToString()).Value.ToString();
                 if (string.IsNullOrEmpty(numeroChamado)) break;
 
-                int idChamado =Convert.ToInt32(numeroChamado);
+                int idChamado = Convert.ToInt32(numeroChamado);
 
-                     //verificaChamado = rBNumerosEntities.tblChamado.Max(c => c.Id);
+                //verificaChamado = rBNumerosEntities.tblChamado.Max(c => c.Id);
 
-                 var  verificaChamado = rBNumerosEntities.tblChamado.Where(c => c.Id == idChamado).Select(a => a.Id).ToList();
-                
-               
+                var verificaChamado = rBNumerosEntities.tblChamado.Where(c => c.Id == idChamado).Select(a => a.Id).ToList();
+
+
 
                 if (verificaChamado.Count == 0)
                 {
@@ -47,26 +56,26 @@ namespace Servicos
                     var titulo = (planilha.Cell("Q" + linha.ToString()).Value.ToString());
                     var clienteP = (planilha.Cell("F" + linha.ToString()).Value.ToString());
                     var redeCliente = (planilha.Cell("G" + linha.ToString()).Value.ToString());
-                
+
                     chamado.Id = Convert.ToInt32(numeroChamado);
 
                     //Verifica se o cliente ja esta cadastrado
                     int clienteCadastrado = ConsultarCliente(clienteP, carteira);
 
-                        //Caso nao tenha cliente cadastro
-                        if (clienteCadastrado == 0)
-                        {
-                            chamado.IdCliente = InserirCliente(clienteP, carteira,redeCliente);
-                            
+                    //Caso nao tenha cliente cadastro
+                    if (clienteCadastrado == 0)
+                    {
+                        chamado.IdCliente = InserirCliente(clienteP, carteira, redeCliente);
 
-                        }
-                        else
-                        {
-                            chamado.IdCliente = clienteCadastrado;
-                        }
 
-                     
-                    
+                    }
+                    else
+                    {
+                        chamado.IdCliente = clienteCadastrado;
+                    }
+
+
+
                     //Verifica se tem tcnico cadastrado
                     var tecnicoCadastro = rBNumerosEntities.tblTecnico.Where(c => c.Nome.Equals(abertoPor)).Select(c => c.Id).ToList();
 
@@ -93,11 +102,19 @@ namespace Servicos
 
                     rBNumerosEntities.tblChamado.Add(chamado);
 
-                    rBNumerosEntities.SaveChanges();   
+                    
+                    rBNumerosEntities.SaveChanges();
+                  
+
                 }
                 linha++;
             }
-        
+
+        }
+
+        public int QuantidadeChamadoImportador()
+        {
+            return totalChamados;
         }
 
         //Verifica se o cliente já esta cadastrado
@@ -105,17 +122,17 @@ namespace Servicos
         {
             RBNumerosEntities et = new RBNumerosEntities();
 
-            int idSelecionado =0;
+            int idSelecionado = 0;
             string _carteira = null;
             string carteiraNova; //= carteira.Trim();
 
-            
-            
+
+
             var id = et.tblCliente.Where(c => c.Nome.Equals(nome)).ToList();
 
             try
             {
-                
+
                 id.ForEach(x => { idSelecionado = x.Id; _carteira = x.Carteira; });
 
                 //Retira o espaço vazio
@@ -129,7 +146,7 @@ namespace Servicos
                 idSelecionado = 0;
             }
 
-        
+
 
             return idSelecionado;
         }
@@ -137,7 +154,7 @@ namespace Servicos
         //Inseri um novo cliente
         public int InserirCliente(string nome, string carteira, string rede)
         {
-           // string _rede = rede;
+            // string _rede = rede;
 
             tblCliente cliente = new tblCliente();
 
@@ -145,7 +162,7 @@ namespace Servicos
 
             var red = et.tblRedeCliente.Where(c => c.Nome == rede).ToList();
 
-            if(red.Count==0)
+            if (red.Count == 0)
             {
                 cliente.IdRede = InserirRede(rede);
             }
@@ -158,11 +175,11 @@ namespace Servicos
             cliente.Carteira = carteira;
 
             et.tblCliente.Add(cliente);
-            
+
             et.SaveChanges();
 
             return et.tblCliente.Max(c => c.Id);
-           
+
         }
 
         //Inserir uma nova rede
@@ -182,7 +199,7 @@ namespace Servicos
         }
 
         //Inseri um novo tecnico
-        public int InserirTecnico(string nome,string carteira)
+        public int InserirTecnico(string nome, string carteira)
         {
             tblTecnico tecnico = new tblTecnico();
             RBNumerosEntities et = new RBNumerosEntities();
@@ -196,5 +213,8 @@ namespace Servicos
 
             return et.tblTecnico.Max(c => c.Id);
         }
+
+
     }
 }
+

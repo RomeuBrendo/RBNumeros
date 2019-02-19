@@ -140,3 +140,4 @@ C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\System.ValueTuple.dll
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\MoreLinq.pdb
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\MoreLinq.xml
 C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\obj\Debug\Model.FrmClienteRedeRelatorio.resources
+C:\Users\laura\Desktop\RBNumeros\RBNumeros\Model\bin\Debug\Servicos.dll.config

@@ -21,10 +21,10 @@ namespace Servicos
         }
     
         public int Id { get; set; }
+        public string RedeNome { get; set; }
         public string Nome { get; set; }
         public string Prioridade { get; set; }
         public string Carteira { get; set; }
-        public string RedeNome { get; set; }
         public Nullable<int> IdRede { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -8,8 +8,14 @@ namespace Servicos
         public DateTime Consultar()
         {
             RBNumerosEntities et = new RBNumerosEntities();
-
-            return et.tblChamado.Max(a => a.DataAbertura);
+            try
+            {
+                return et.tblChamado.Max(a => a.DataAbertura);
+            }
+            catch
+            {
+                return DateTime.Now;
+            }
         }
     }
 }

@@ -30,6 +30,11 @@
           <Property Name="Carteira" Type="nchar" MaxLength="10" />
           <Property Name="IdRede" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'RBNumeros.dbo.tblContagemChamado' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblContagemChamado">
+          <Property Name="Cont" Type="int" />
+        </EntityType>-->
         <EntityType Name="tblRedeCliente">
           <Key>
             <PropertyRef Name="Id" />

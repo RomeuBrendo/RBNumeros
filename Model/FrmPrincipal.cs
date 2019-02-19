@@ -30,14 +30,14 @@ namespace Model
         {
             DialogResult dialogResultValidacao = MessageBox.Show("Planilha se encontra no diretorio C:\\RBNUMEROS\\CHAMADOS ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
-            if (dialogResultValidacao == DialogResult.Yes)
-            {
-                ImportarPlanilha chamadoServico = new ImportarPlanilha();
-
-                chamadoServico.InserirChamado();
-                MessageBox.Show("Importação realizada com sucesso");
+             if (dialogResultValidacao == DialogResult.Yes)
+             {
+                FrmBarraProgresso frmBarraProgresso = new FrmBarraProgresso();
+                frmBarraProgresso.Show();
                 CarregarUltimaImportacao();
-            }
+              } 
+
+
         }
 
         private void clientesToolStripMenuItem_Click_1(object sender, EventArgs e)
